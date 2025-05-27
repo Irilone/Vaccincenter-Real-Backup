@@ -1,0 +1,2262 @@
+/* === COMPREHENSIVE BROWSER COMPATIBILITY PREFIXES === */
+
+
+/* Text Rendering & Font Smoothing */
+* {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-text-rendering: optimizeLegibility !important;
+    -moz-text-rendering: optimizeLegibility !important;
+    -o-text-rendering: optimizeLegibility !important;
+}
+
+/* Text Size Adjustment */
+html {
+    -webkit-text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+    -o-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+}
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+
+/* Flexbox Properties */
+.main-flex,
+.clinic-cards,
+.clinic-card,
+.image-wrapper,
+.clinic-content,
+.info-row,
+.contact,
+.buttons,
+.buttons a,
+.hours,
+.service-grid,
+.service-item,
+.icon-container,
+nav.footer__link-nav ul#footer__links {
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+}
+
+article.clinic-card div.clinic-content div.info-row div.contact * {
+    text-align: left !important;
+}
+
+/* Flex Direction */
+.clinic-cards,
+.clinic-content,
+.info-row,
+.contact,
+.hours,
+.service-item,
+.icon-container {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -moz-box-orient: vertical !important;
+    -moz-box-direction: normal !important;
+    -ms-flex-direction: column !important;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+}
+
+/* Flex Wrap */
+.book-buttons,
+.row.no-gutters {
+    -webkit-flex-wrap: wrap !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+}
+
+/* Justify Content */
+.book-buttons,
+.buttons,
+.hours ul,
+nav.footer__link-nav ul#footer__links {
+    -webkit-box-pack: center !important;
+    -moz-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    -webkit-justify-content: center !important;
+    justify-content: center !important;
+}
+
+/* Align Items */
+.buttons a,
+.hours,
+.service-item,
+.icon-container {
+    -webkit-box-align: center !important;
+    -moz-box-align: center !important;
+    -ms-flex-align: center !important;
+    -webkit-align-items: center !important;
+    align-items: center !important;
+}
+
+/* Flex Properties */
+.clinic-content,
+.contact {
+    -webkit-box-flex: 1 !important;
+    -moz-box-flex: 1 !important;
+    -webkit-flex: 1 !important;
+    -ms-flex: 1 !important;
+    flex: 1 !important;
+}
+
+/* Transform Properties */
+.fade-in,
+.clinic-card:hover,
+.service-item:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+    -webkit-transform: translateY(-4px) !important;
+    -moz-transform: translateY(-4px) !important;
+    -ms-transform: translateY(-4px) !important;
+    -o-transform: translateY(-4px) !important;
+    transform: translateY(-4px) !important;
+}
+
+/* Transition Properties */
+.fade-in,
+.clinic-card,
+.service-item,
+.buttons a,
+footer.footer a,
+a {
+    -webkit-transition: all 0.2s ease !important;
+    -moz-transition: all 0.2s ease !important;
+    -ms-transition: all 0.2s ease !important;
+    -o-transition: all 0.2s ease !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Box Shadow */
+.clinic-card,
+.service-item,
+.btn-primary,
+.buttons a {
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Border Radius */
+.clinic-card,
+.service-grid,
+.service-item,
+.buttons a {
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    border-radius: 8px !important;
+}
+
+/* Filter Properties */
+.service-icon {
+    -webkit-filter: brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(2152%) hue-rotate(184deg) brightness(40%) contrast(102%) !important;
+    -moz-filter: brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(2152%) hue-rotate(184deg) brightness(40%) contrast(102%) !important;
+    -ms-filter: brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(2152%) hue-rotate(184deg) brightness(40%) contrast(102%) !important;
+    -o-filter: brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(2152%) hue-rotate(184deg) brightness(40%) contrast(102%) !important;
+    filter: brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(2152%) hue-rotate(184deg) brightness(40%) contrast(102%) !important;
+}
+
+/* Overflow Scrolling */
+.container {
+    -webkit-overflow-scrolling: touch !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+/* Appearance */
+button,
+input,
+select,
+textarea {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+/* User Select */
+.hours h4,
+.service-title,
+.clinic-content h3 {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+/* Font Feature Settings */
+.fa,
+.fab,
+.fad,
+.fal,
+.far,
+.fas {
+    -webkit-font-feature-settings: normal !important;
+    -moz-font-feature-settings: normal !important;
+    font-feature-settings: normal !important;
+}
+
+/* Calc Support */
+.main-flex {
+    width: -webkit-calc(100% - 0px) !important;
+    width: -moz-calc(100% - 0px) !important;
+    width: calc(100% - 0px) !important;
+}
+
+/* Grid Support (Future-proofing) */
+.service-grid {
+    display: -ms-grid !important;
+    display: grid !important;
+    -ms-grid-columns: 115px 115px !important;
+    grid-template-columns: repeat(2, 115px) !important;
+}
+
+/* Touch Action */
+.clinic-card,
+.service-item,
+.buttons a {
+    -ms-touch-action: manipulation !important;
+    touch-action: manipulation !important;
+}
+
+/* Backdrop Filter (Future-proofing) */
+.navigation__logo {
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Scroll Behavior */
+html {
+    -webkit-scroll-behavior: smooth !important;
+    -moz-scroll-behavior: smooth !important;
+    -ms-scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
+}
+
+/* Hyphens */
+p,
+.contact p,
+.clinic-content h3 {
+    -webkit-hyphens: auto !important;
+    -moz-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphens: auto !important;
+}
+
+/* Column Properties */
+.info-row {
+    -webkit-column-gap: 15px !important;
+    -moz-column-gap: 15px !important;
+    column-gap: 15px !important;
+    margin-top: 18px !important;
+}
+
+/* Object Fit */
+.image-wrapper img,
+.service-icon {
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+}
+
+/* Aspect Ratio (with fallback) */
+.image-wrapper {
+    aspect-ratio: 1 / 1 !important;
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+    .image-wrapper::before {
+        content: "" !important;
+        display: block !important;
+        padding-bottom: 100% !important;
+    }
+}
+
+/* Pointer Events */
+.clinic-card:hover,
+.service-item:hover,
+.buttons a:hover {
+    pointer-events: auto !important;
+}
+
+
+/* === END BROWSER COMPATIBILITY === */
+
+/* ==========================================================================
+   1. Global Resets & Base HTML Styles
+   ========================================================================== */
+
+* {
+    font-family: filsonpro, sans-serif !important;
+    /* Global font override */
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    /* Prevent text scaling in iOS */
+    -ms-text-size-adjust: 100%;
+    /* Prevent text scaling in IE/Edge */
+    text-rendering: optimizeLegibility;
+    /* Enhance text legibility */
+    scrollbar-gutter: auto;
+    /* Reserve space for scrollbar to prevent layout shifts */
+}
+
+/* LINT: This is a very broad selector. Applying styles, especially color: #fff !important,
+   to all p, span, li, a, div elements globally can lead to unintended consequences
+   and make it harder to manage text colors in different sections.
+   It's generally better to use more specific selectors or a base body color
+   and allow inheritance. */
+
+/* ==========================================================================
+   2. Layout System: Containers, Rows, Blocks
+   ========================================================================== */
+
+/* 2.1. Container System */
+
+/* Base for .container and responsive variants (excluding .container-fluid from this padding) */
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    width: 100%;
+    max-width: 100%;
+    /* Initially full width, overridden by breakpoints for .container */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    /* Default horizontal padding */
+    padding-right: 15px;
+    /* Default horizontal padding */
+    box-sizing: border-box;
+}
+
+/* .container specific base styles */
+.container {
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+    /* Max-width and padding are adjusted via media queries below */
+}
+
+/* .container-fluid specific resets for HEADER (ensures full width, no padding, and no Bootstrap gutters within the header) */
+header .container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    --bs-gutter-x: 0 !important;
+    /* This variable is not from your list, so it remains */
+    --bs-gutter-y: 0 !important;
+    /* This variable is not from your list, so it remains */
+}
+
+/* Responsive .container adjustments (max-width, padding) */
+@media (min-width: 640px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        /* Constrains .container width */
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px !important;
+        /* Ensure this override if needed */
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px !important;
+        /* Ensure this override if needed */
+    }
+}
+
+/* 2.2. Row System & Manipulations */
+
+/* Custom "no-gutters" for general use */
+/* LINT: If this class is no longer used after header removal, it can be deleted. */
+.row.no-gutters {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0px !important;
+    /* Overriding potential Bootstrap negative margins */
+    margin-right: 0px !important;
+    /* Overriding potential Bootstrap negative margins */
+    --bs-gutter-x: 0.1rem;
+    /* This variable is not from your list, so it remains. Small gutter, adjust if truly no gutter is needed (then 0) */
+    --bs-gutter-y: 0;
+    /* This variable is not from your list, so it remains */
+}
+
+/* Flattening specific rows and their direct .block children */
+.row.row2,
+.row.row3,
+.row.row4,
+.row.row5 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.row.row2 .block,
+.row.row3 .block,
+.row.row4 .block,
+.row.row5 .block {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Row 1 specific adjustments (overlap effect) */
+.row.row1 {
+    position: relative !important;
+    /* Using !important as per original */
+    z-index: 2 !important;
+    /* Using !important as per original */
+    margin-bottom: -214px !important;
+    /* Using !important as per original */
+    padding: 0 !important;
+    /* Using !important as per original */
+    margin-top: 0 !important;
+    /* Consolidated from later rule */
+}
+
+/* Hiding row6 completely */
+div.row.row6 {
+    /* More specific selector `div.row.row6` used in original */
+    display: none !important;
+    /* Other properties like visibility, height, margin, padding, overflow
+     become mostly irrelevant with display: none. */
+}
+
+/* Zero out top margins for specified rows (row1 handled above, row6 by display:none) */
+/* This ensures rows 2-5 also have margin-top: 0 if not covered by "margin: 0" */
+div.row.row5,
+div.row.row4,
+div.row.row3,
+div.row.row2 {
+    margin-top: 0 !important;
+    /* Redundant if "margin: 0 !important;" is already set, but ensures explicitness */
+}
+
+
+/* 2.3. Block Container Resets */
+
+/* Universal reset for .block-container */
+.block-container {
+    --bs-gutter-x: 0 !important;
+    /* This variable is not from your list, so it remains. Reset Bootstrap horizontal gutter */
+    padding: 0 !important;
+    /* Reset padding */
+}
+
+/* Original .col-12 .block-container rule was identical, so this more general rule suffices
+   unless there's a specific conflicting style on .block-container that only .col-12 should override. */
+
+
+/* ==========================================================================
+   3. Components
+   ========================================================================== */
+
+/* 3.1. Booking Buttons */
+.book-buttons {
+    display: flex;
+    /* Modern flexbox */
+    flex-wrap: wrap;
+    /* Modern flexbox wrap */
+    justify-content: center;
+    gap: 16px;
+    /* Modern way to space flex items */
+    margin-top: 24px;
+    padding-top: 24px;
+    /* Note: margin-top and padding-top are both 24px. Verify if intentional. */
+}
+
+/* 3.2. Navigation Elements */
+/* LINT: These rules might be orphaned or represent a mistake if headers/main navigation were removed. Verify their usage. */
+
+/* Rule for a navigation element. If headers/navigation are wiped, this might be an orphan or a mistake. */
+.navigation__item-category {
+    color: #012363 !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    font-weight: 500 !important;
+}
+
+/* Rule for a Font Awesome chevron, likely in navigation.
+   POTENTIAL TYPO in class: 'navigationitem-chevron--collapsed' corrected to 'navigation__item-chevron--collapsed'
+   If 'navigationitem-chevron--collapsed' is intentional, revert this correction. */
+.fal.fa-chevron-down.navigation__item-chevron--collapsed {
+    /* Corrected 'navigationitem' to 'navigation__item' */
+    color: #012363 !important;
+}
+
+
+.navigation__logo.flex-start {
+    display: flex !important;
+    /* LINT: Class name 'flex-start' might imply justify-content: flex-start;
+     This is a style choice, current rule centers it. */
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+body[class*="logo--normal"] .navigation__logo {
+    height: 60px !important;
+    /* Applies only when body has a class containing "logo--normal" */
+}
+
+.navigation__logo img {
+    max-width: 350px !important;
+    min-width: 225px !important;
+    display: block;
+    font-family: "object-fit:contain;object-position:left top";
+    max-height: 40px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: left top;
+    object-position: left top;
+    width: 50vw;
+}
+
+
+/* ==========================================================================
+   4. Typography & Utility Classes
+   ========================================================================== */
+
+.heading-highlight {
+    font-size: 22px;
+    /* Replaced var(--fs-h4) */
+    color: #012363;
+    /* SYNTAX FIX: Added # to color value. Was '012363' */
+    margin-block: 1.2rem 0.8rem;
+    /* Modern shorthand for margin-top and margin-bottom */
+}
+
+.paragraph-highlight {
+    font-size: 19px;
+    /* Specific pixel value */
+    color: #fff;
+    /* Replaced var(--clr-brand-100) */
+    margin-block: 0 1.6rem;
+    /* Modern shorthand for margin-top and margin-bottom */
+}
+
+
+/* ==========================================================================
+   5. Attribute Selector Overrides (Fragile - Use with Caution)
+   ========================================================================== */
+
+/* LINT: Attribute selectors targeting inline styles are fragile and hard to maintain.
+   Consider using dedicated utility classes instead if the HTML can be modified. */
+div[style*="text-align: center; margin: 24px"],
+div[style*="text-align: center; margin: 20px"] {
+    margin: 2px 0 !important;
+    /* Significantly reduces original margin */
+}
+
+div[style*="border-radius: 12px; overflow: hidden; margin: 24px"],
+div[style*="border-radius: 12px; overflow: hidden; margin: 20px"] {
+    margin: 2px 0 !important;
+    /* Significantly reduces original margin */
+}
+
+.service-grid .service-item .service-title {
+    text-align: center !important;
+}
+
+/* =========================================================
+   PRAKTIKERTJÄNST VACCINCENTER – GLOBALT STYLE-PAKET
+   =========================================================
+   INNEHÅLLSFÖRTECKNING:
+   
+   1. CSS-VARIABLER & GRUNDLÄGGANDE STYLING
+   2. BASLAYOUT & TYPOGRAFI
+   3. KOMPONENTER
+      3.1 Header
+      3.2 Clinic Cards
+      3.3 Service Grid
+      3.4 Buttons & Interactive Elements
+   4. RESPONSIV DESIGN
+      4.1 1200px Breakpoint - Stack Layout
+      4.2 1000px Breakpoint - Tablet Layout
+      4.3 768px Breakpoint - Small Tablet
+      4.4 576px Breakpoint - Large Mobile
+      4.5 480px Breakpoint - Mobile
+      4.6 375px Breakpoint - Small Mobile
+   ========================================================= */
+
+/* ===== 1. CSS-VARIABLER & GRUNDLÄGGANDE STYLING ===== */
+:root {
+    /* Brand Colors */
+    --blue-primary: #012363 !important;
+    --blue-dark: #003366 !important;
+    --bg-card: #E0F3FA !important;
+    --bg-service: #46b5ff !important;
+    --bg-footer: #eff9ff !important;
+    --text-white: #ffffff !important;
+
+    /* Typography */
+    --font-family-base: filsonpro, sans-serif !important;
+
+    /* Effects */
+    --shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.1) !important;
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    --border-radius: 8px !important;
+}
+
+/* Base HTML elements */
+html {
+    scroll-behavior: smooth !important;
+    -webkit-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+}
+
+/* ===== 2. BASLAYOUT & TYPOGRAFI ===== */
+
+/* Base body styling */
+body {
+    font-family: filsonpro, sans-serif !important;
+    line-height: 1.4 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--blue-dark) !important;
+}
+
+/* Global link styling */
+a {
+    color: var(--blue-primary) !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Specific link styling for clinic cards */
+.clinic-cards a:not(.btn-primary):not(.btn-secondary) {
+    text-decoration: underline !important;
+    color: #004c99 !important;
+}
+
+/* Main content container */
+.main-flex {
+    display: flex !important;
+    justify-content: start !important;
+    align-items: flex-start !important;
+    min-width: 92vw !important;
+    min-height: 70vh !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    gap: 85px !important;
+}
+
+/* Global animation classes */
+.fade-in {
+    opacity: 0 !important;
+    transform: translateY(10px) !important;
+    transition: opacity 0.6s ease, transform 0.6s ease !important;
+}
+
+.fade-in.visible {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* ===== 3. KOMPONENTER ===== */
+
+/* === 3.1 Header === */
+.welcome-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+    font-family: filsonpro, sans-serif !important;
+    text-align: center !important;
+    min-width: 470px !important;
+}
+
+.welcome-title {
+    font-size: 35px !important;
+    color: var(--blue-primary) !important;
+    margin: 0 0 4px !important;
+    font-weight: 600 !important;
+}
+
+.welcome-subtitle {
+    font-size: 25px !important;
+    color: var(--blue-dark) !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+}
+
+/* === 3.2 Clinic Cards === */
+
+/* Clinic cards container */
+.clinic-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+    flex: 0 1 800px !important;
+    max-width: 730px !important;
+    min-width: 730px !important;
+    width: 730px !important;
+    box-sizing: border-box !important;
+    padding: 20px 0 !important;
+}
+
+/* Individual clinic card */
+.clinic-card {
+    position: relative !important;
+    display: flex !important;
+    min-width: 730px !important;
+    max-width: 730px !important;
+    min-height: 209.6px !important;
+    background: var(--bg-card) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: var(--shadow-md) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Hover effects for desktop */
+@media(hover:hover) and (pointer:fine) {
+    .clinic-card:hover {
+        transform: translateY(-4px) scale(1.02) !important;
+        box-shadow: var(--shadow-lg) !important;
+    }
+}
+
+/* Clinic card image container */
+.image-wrapper {
+    flex: 0 0 209.6px !important;
+    aspect-ratio: 1/1 !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* Clinic card image */
+.image-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* Clinic card content area */
+.clinic-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+/* Clinic card title */
+.clinic-content h3 {
+    margin: 0 0 12px !important;
+    font-size: 22px !important;
+    color: var(--blue-primary) !important;
+    font-weight: 600 !important;
+    font-family: filsonpro, sans-serif !important;
+    line-height: 1.2 !important;
+}
+
+/* Clinic card information row layout */
+.info-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    flex: 1 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Contact information section */
+.contact {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    color: var(--blue-dark) !important;
+    width: 100% !important;
+    max-width: 300px !important;
+}
+
+/* Contact information paragraphs */
+.contact p {
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    font-size: 14px !important;
+    padding: 0 !important;
+}
+
+/* Contact label styling */
+.contact-label {
+    font-weight: 600 !important;
+    display: inline-block !important;
+    min-width: 235px !important;
+}
+
+/* Address specific styling */
+.address {
+    color: var(--blue-dark) !important;
+    word-wrap: break-word !important;
+}
+
+/* Button container */
+.buttons {
+    display: flex !important;
+    row-gap: 43px !important;
+    column-gap: 37px !important;
+    max-width: 730px !important;
+    margin-top: 5px !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Button base styling */
+.buttons a {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 8px 12px !important;
+    border-radius: var(--border-radius) !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+/* Primary button styling */
+.btn-primary,
+.clinic-cards .btn-primary,
+.buttons .btn-primary {
+    background: linear-gradient(145deg, #69D2F1 0%, #5CC0E0 50%, #4FB0D0 100%) !important;
+    color: #000000 !important;
+    border: 0px solid var(--blue-primary) !important;
+    box-shadow: 0 2px 4px rgba(1, 35, 99, 0.1) !important;
+    text-decoration: none !important;
+}
+
+/* Secondary button styling */
+.btn-secondary,
+.clinic-cards .btn-secondary,
+.buttons .btn-secondary {
+    background: linear-gradient(145deg, #2E5A88 0%, #1F3E6D 50%, #102A4F 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    text-decoration: none !important;
+}
+
+/* Primary button hover state */
+.btn-primary:hover {
+    background-color: #7DDDF4 !important;
+    border-color: var(--blue-dark) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Secondary button hover state */
+.btn-secondary:hover {
+    background-color: rgba(1, 35, 99, 0.05) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Opening hours section */
+.hours {
+    position: absolute !important;
+    top: 60% !important;
+    right: 20% !important;
+    transform: translate(50%, -50%) !important;
+    width: 170px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    z-index: 2 !important;
+}
+
+/* Opening hours title */
+.hours h4 {
+    margin: 0 0 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--blue-dark) !important;
+    text-align: left !important;
+}
+
+/* Opening hours list */
+.hours ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    row-gap: 2px !important;
+    width: 100% !important;
+}
+
+/* Opening hours list items */
+.hours li {
+    display: flex !important;
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    color: var(--blue-dark) !important;
+    column-gap: 12px !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+}
+
+/* Day column in hours list */
+.hours .day {
+    flex: 0 0 72px !important;
+    text-align: left !important;
+}
+
+/* Time column in hours list */
+.hours .time {
+    flex: 0 0 80px !important;
+    text-align: right !important;
+}
+
+.hours li.today {
+    font-weight: 700 !important;
+    color: var(--blue-primary) !important;
+}
+
+/* ===== 4. TJÄNSTEGRID (SERVICE GRID) ===== */
+
+/* Service grid container */
+.service-grid {
+    position: relative !important;
+    right: 0px !important;
+    top: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 115px) !important;
+    grid-template-rows: auto !important;
+    row-gap: 45px !important;
+    column-gap: 45px !important;
+    width: 330px !important;
+    background: #fff !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    justify-content: start !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    min-height: 625px !important;
+    margin-top: 54px !important;
+    margin-bottom: 54px !important;
+}
+
+/* Individual service item */
+.service-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(145deg, #58A8BF 0%, #5CB2D5 100%) !important;
+    width: 115px !important;
+    height: 115px !important;
+    padding: 6px !important;
+    box-sizing: border-box !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    color: var(--text-white) !important;
+}
+
+/* Remove underlines from all service grid links */
+.service-grid a,
+.service-item a {
+    text-decoration: none !important;
+    color: var(--text-white) !important;
+}
+
+/* Service icon */
+.service-icon {
+    /* Set width and height */
+    width: 40px !important;
+    height: 40px !important;
+    /* Set margin bottom */
+    max-width: 40px !important;
+    max-height: 40px !important;
+    margin-bottom: 8px !important;
+    object-fit: contain !important;
+}
+
+/* Ensure text centering only affects service items */
+.service-grid .textblock.alignment--left,
+.service-grid .textblock.alignment--left :not(ul):not(ol):not(li) {
+    text-align: center !important;
+}
+
+.service-title {
+    font-family: filsonpro, sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 450 !important;
+    color: #000 !important;
+    margin: 0 !important;
+    word-break: break-word !important;
+    width: 100% !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    position: relative !important;
+}
+
+.service-title br {
+    display: block !important;
+    content: '' !important;
+    margin-top: 4px !important;
+}
+
+@media(hover:hover) and (pointer:fine) {
+    .service-item:hover {
+        transform: translateY(-4px) scale(1.03) !important;
+        box-shadow: var(--shadow-lg) !important;
+        text-decoration: none !important;
+        color: var(--text-white) !important;
+    }
+}
+
+/* Legacy selector - kept for backward compatibility */
+.icon-container {
+    width: 39px !important;
+    height: 39px !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+}
+
+/* ===== 6. RESPONSIVA ANPASSNINGAR ===== */
+/* ===== 6. RESPONSIVA ANPASSNINGAR ===== */
+
+/* 
+ /* ===== 4. RESPONSIV DESIGN ===== */
+
+/* Responsive Breakpoints Overview:
+ * 1200px - Stack layout, full-width components
+ * 1000px - Tablet layout adjustments
+ * 992px - Smaller desktops and large tablets
+ * 768px - Tablet-optimized layout
+ * 576px - Small tablet/large phone layout
+ * 480px - Mobile phone layout
+ * 375px - Small phone optimization
+ */
+
+/* === 4.1 1200px Breakpoint - Stack Layout === */
+@media(max-width:1170px) {
+
+    /* Reorder components - service grid above clinic cards */
+    .main-flex {
+        align-items: center !important;
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        /* Reverse order to place service grid first */
+        gap: 32px !important;
+        padding: 10px 2% !important;
+        /* Slightly reduce side padding */
+    }
+
+
+
+    .clinic-cards {
+        align-items: center !important;
+    }
+
+    /* Transform service grid to 2-row, 4-column layout */
+    .service-grid {
+        position: relative !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        /* 4 columns */
+        grid-template-rows: repeat(2, auto) !important;
+        /* 2 rows */
+        row-gap: 24px !important;
+        column-gap: 16px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        /* Add bottom margin for spacing between grid and cards */
+        padding-top: 0px !important;
+        padding-right: 0px !important;
+        padding-bottom: 0px !important;
+        padding-left: 0px !important;
+        width: 90vw !important;
+        max-width: 95vw !important;
+        min-width: 70vw !important;
+        min-height: 275px !important;
+        /* Allow height to adjust to content */
+        justify-content: center !important;
+    }
+
+    /* Adjust service items to fit new grid layout */
+    .service-item {
+        width: 100% !important;
+        /* Fill available space */
+        max-width: 120px !important;
+        min-width: 120px !important;
+        /* But cap the maximum width */
+        height: 120px !important;
+        /* Slightly smaller height */
+        margin: 0 auto !important;
+        /* Center items in grid cells */
+    }
+
+    /* Center service titles */
+    .service-item .service-title {
+        font-size: 13px !important;
+        /* Slightly smaller font */
+    }
+}
+
+/* Desktop/Large Tablet (below 992px) - Optimize spacing */
+@media(max-width:992px) {
+
+    /* Reduce overall page padding */
+    .main-flex {
+        align-items: center !important;
+        padding: 16px 3% !important;
+        gap: 24px !important;
+    }
+
+    /* Adjust clinic card spacing */
+    .clinic-cards {
+        gap: 24px !important;
+    }
+
+    /* Maintain 2x4 grid layout - never go to 3 columns */
+    .service-grid {
+        padding: 20px !important;
+        row-gap: 32px !important;
+        /* Slightly reduce row gap */
+        column-gap: 24px !important;
+        margin-top: 40px !important;
+        /* Keep 4 columns at all times */
+        grid-template-columns: repeat(4, 1fr) !important;
+        /* Ensure service items stay proportional */
+        min-height: auto !important;
+    }
+
+    /* Ensure service items maintain minimum size */
+    .service-item {
+        width: 100% !important;
+        min-width: 120px !important;
+        /* Never go below 120px */
+        max-width: 120px !important;
+        /* Consistent size */
+        height: 120px !important;
+        /* Fixed height of 120px */
+        min-height: 120px !important;
+        /* Never go below 120px */
+        margin: 0 auto !important;
+    }
+
+    /* Slightly reduce clinic card padding */
+    .clinic-content {
+        padding: 18px !important;
+    }
+
+    /* Slightly smaller welcome text */
+    .welcome-title {
+        font-size: 26px !important;
+    }
+}
+
+/* Contact label styling for all breakpoints */
+.contact-label {
+    font-weight: 600 !important;
+    /* Add font weight as requested */
+    display: inline-block !important;
+    min-width: 60px !important;
+    /* Ensure consistent alignment */
+}
+
+/* Clinic Card Layout Fix (below 1000px) */
+@media(max-width:1000px) {
+
+    /* Center align h3 title */
+    .clinic-content h3 {
+        text-align: center !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Limit width of clinic cards */
+    .clinic-card {
+        flex-direction: column !important;
+        /* Stack image and content */
+        max-width: 100% !important;
+        min-width: 300px !important;
+        /* Reduced max-width as requested */
+        margin: 0 auto !important;
+        /* Center the card */
+    }
+
+    /* Set max-width for entire clinic cards container */
+    .clinic-cards {
+        max-width: 500px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Adjust image for this specific breakpoint */
+    .image-wrapper {
+        width: 100% !important;
+        flex: 0 0 auto !important;
+        aspect-ratio: 16/9 !important;
+    }
+
+    /* Position contact and hours side by side */
+    .info-row {
+        display: flex !important;
+        flex-direction: row !important;
+        /* Force horizontal layout */
+        justify-content: space-between !important;
+        padding-right: 0 !important;
+        gap: 20px !important;
+        margin-top: 16px !important;
+        align-items: flex-start !important;
+        /* Align items to the top */
+    }
+
+    /* Make contact info take less space and support button centering */
+    .contact {
+        flex: 0 0 48% !important;
+        /* Take 48% of the row */
+        flex-direction: column !important;
+        align-items: center !important;
+        /* Center align all children */
+        text-align: center !important;
+        /* Center text content */
+        width: 100% !important;
+        /* Ensure full width for centering */
+        min-width: 235px !important;
+    }
+
+    /* But keep the text content left-aligned */
+    .contact p {
+        text-align: left !important;
+        align-self: flex-start !important;
+    }
+
+    /* Force line breaks after each contact element */
+    .contact p {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Force row breaks for contact labels */
+    .contact-label {
+        display: block !important;
+        /* Make each label a block element */
+        margin-bottom: 0 !important;
+        font-weight: 600 !important;
+    }
+
+    /* Make telephone, email, and address appear on their own lines */
+    .contact p a,
+    .contact p .address {
+        display: block !important;
+        margin-bottom: 5px !important;
+    }
+
+    /* Clinic Card Layout at 1000px Breakpoint */
+    @media (max-width: 1000px) {
+
+        /* Center align h3 title */
+        .clinic-content h3 {
+            text-align: center !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* Stack image and content */
+        .clinic-card {
+            flex-direction: column !important;
+            max-width: 500px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+        }
+
+        /* Set max-width for entire clinic cards container */
+        .clinic-cards {
+            max-width: 500px !important;
+            min-width: 500px !important;
+            margin: 0 auto !important;
+        }
+
+        /* Adjust image for this breakpoint */
+        .image-wrapper {
+            width: 100% !important;
+            aspect-ratio: 16/9 !important;
+        }
+
+        /* Position contact and hours side by side */
+        .info-row {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            padding-right: 0 !important;
+            gap: 20px !important;
+            margin-top: 16px !important;
+            align-items: flex-start !important;
+        }
+
+        /* Make contact info take less space */
+        .contact {
+            flex: 0 0 48% !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            width: 100% !important;
+        }
+
+        /* But keep the text content left-aligned */
+        .contact p {
+            text-align: left !important;
+            align-self: flex-start !important;
+            width: 100% !important;
+            margin-bottom: 0 !important;
+            display: block !important;
+        }
+
+        /* Force row breaks for contact labels */
+        .contact-label {
+            display: block !important;
+            margin-bottom: 0 !important;
+            font-weight: 600 !important;
+        }
+
+        /* Make telephone, email, and address appear on their own lines */
+        .contact p a,
+        .contact p .address {
+            display: block !important;
+            margin-bottom: 5px !important;
+        }
+
+        /* Position hours section next to contact info */
+        .hours {
+            position: relative !important;
+            top: auto !important;
+            right: auto !important;
+            transform: none !important;
+            flex: 0 0 48% !important;
+            align-items: flex-start !important;
+            margin-top: 0px !important;
+            padding: 0 !important;
+            border-top: none !important;
+            align-self: flex-start !important;
+        }
+
+        /* Align hours title with contact section */
+        .hours h4 {
+            margin-top: 0 !important;
+            text-align: left !important;
+        }
+
+        /* Position buttons at the bottom of the card */
+        .clinic-card .contact .buttons {
+            position: absolute !important;
+            bottom: -37px !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-evenly !important;
+            gap: 16px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            z-index: 5 !important;
+        }
+
+        /* Style individual buttons */
+        .clinic-card .buttons a {
+            flex: 0 0 auto !important;
+            width: auto !important;
+            min-width: 120px !important;
+            max-width: 160px !important;
+            text-align: center !important;
+            padding: 8px 16px !important;
+        }
+
+        /* Ensure there's space at the bottom for the buttons */
+        .clinic-card {
+            padding-bottom: 60px !important;
+        }
+    }
+
+    /* Button styling for all screen sizes */
+    .buttons a {
+        flex: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        padding: 8px 12px !important;
+        border-radius: 6px !important;
+        white-space: nowrap !important;
+        color: var(--text-white) !important;
+        text-decoration: none !important;
+        box-shadow: var(--shadow-sm) !important;
+        transition: transform .2s, box-shadow .2s !important;
+    }
+
+    /* Button hover state */
+    .buttons a:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 7px 13px rgba(0, 0, 0, .12) !important;
+    }
+
+
+    /* Tablet (below 768px) - Significant layout adjustments */
+    @media(max-width:768px) {
+
+        /* Adjust welcome header */
+        .welcome-header {
+            margin-bottom: 16px !important;
+            text-align: center !important;
+            /* Center welcome text for better visual balance */
+        }
+
+        .welcome-title {
+            font-size: 24px !important;
+        }
+
+        /* Additional adjustments for smaller screens */
+        .clinic-content {
+            padding: 16px !important;
+            /* Reduce padding */
+        }
+
+        /* Maintain side-by-side layout but with reduced font sizes */
+        .contact,
+        .hours {
+            font-size: 14px !important;
+            /* Slightly smaller text */
+        }
+
+        /* Adjust buttons for smaller screens */
+        .buttons {
+            margin-top: 20px !important;
+            width: 100% !important;
+            justify-content: space-between !important;
+        }
+
+        .buttons a {
+            font-size: 14px !important;
+            padding: 8px 12px !important;
+        }
+    }
+
+    /* Smallest screens (below 480px) - Stack layout */
+    @media(max-width:480px) {
+
+        /* Stack info-row at smallest sizes */
+        .info-row {
+            flex-direction: column !important;
+            gap: 24px !important;
+        }
+
+        .contact,
+        .hours {
+            flex: 0 0 100% !important;
+            width: 100% !important;
+        }
+
+        /* Reset hours positioning at smallest sizes */
+        .hours {
+            margin-top: 0 !important;
+        }
+
+        /* Adjust button row for very small screens */
+        .buttons {
+            flex-direction: column !important;
+            gap: 10px !important;
+        }
+
+        .buttons a {
+            width: 100% !important;
+            justify-content: center !important;
+        }
+    }
+
+    /* Small Tablet/Large Phone (below 576px) - Mobile optimizations */
+    @media(max-width:576px) {
+
+        /* Further reduce page spacing */
+        .main-flex {
+            align-items: center !important;
+            padding: 12px 3% !important;
+            gap: 20px !important;
+        }
+
+        /* Optimize card spacing */
+        .clinic-cards {
+            gap: 20px !important;
+            padding: 12px 0 !important;
+        }
+
+        /* Reduce content padding */
+        .clinic-content {
+            padding: 16px !important;
+        }
+
+        /* Make card title smaller */
+        .clinic-content h3 {
+            font-size: 20px !important;
+            margin-bottom: 8px !important;
+        }
+
+        /* Keep the layout from 1000px breakpoint but adjust sizes */
+        .info-row {
+            gap: 16px !important;
+            /* Reduce gap between contact and hours */
+        }
+
+        /* Compress contact information spacing */
+        .contact {
+            font-size: 13px !important;
+            gap: 6px !important;
+        }
+
+        /* Adjust hours spacing and font size */
+        .hours {
+            font-size: 13px !important;
+            margin-top: 0px !important;
+            /* Slightly less negative margin */
+        }
+
+        /* Smaller hours section */
+        .hours li {
+            font-size: 11px !important;
+        }
+
+        .hours .day {
+            flex: 0 0 65px !important;
+        }
+
+        .hours .time {
+            flex: 0 0 70px !important;
+        }
+
+        /* Adjust buttons for small screens */
+        .buttons a {
+            font-size: 13px !important;
+            padding: 8px !important;
+            justify-content: center !important;
+            text-align: center !important;
+        }
+
+        /* Optimize service grid for small screens */
+        .service-grid {
+            row-gap: 24px !important;
+            column-gap: 20px !important;
+            padding: 16px !important;
+            margin-top: 24px !important;
+            margin-bottom: 24px !important;
+        }
+
+        /* Maintain consistent service item size */
+        .service-item {
+            width: 120px !important;
+            height: 120px !important;
+            min-width: 120px !important;
+            min-height: 120px !important;
+            max-width: 120px !important;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .clinic-content h3 {
+            text-align: center !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    /* Small Phone (below 375px) - Maximum optimization for tiny screens */
+    @media(max-width:375px) {
+
+        /* Minimize padding to maximize content space */
+        .main-flex {
+            padding: 10px 2% !important;
+            align-items: center !important;
+        }
+
+        /* Very compact clinic cards */
+        .clinic-content {
+            padding: 12px !important;
+        }
+
+        /* Simplify welcome header */
+        .welcome-title {
+            font-size: 20px !important;
+        }
+
+        .welcome-subtitle {
+            font-size: 14px !important;
+        }
+
+        /* Make buttons very compact */
+        .buttons {
+            flex-direction: column !important;
+            gap: 8px !important;
+        }
+
+        .buttons a {
+            width: 100% !important;
+        }
+
+        /* Single column service grid for smallest screens */
+        .service-grid {
+            grid-template-columns: repeat(1, 145px) !important;
+            justify-content: center !important;
+            padding: 12px !important;
+        }
+
+        /* Larger service items when in single column */
+        .service-item {
+            width: 145px !important;
+            height: 145px !important;
+        }
+
+        /* More compact hours */
+        .hours li {
+            column-gap: 8px !important;
+        }
+
+        /* Further compress text and spacing */
+        .clinic-card {
+            border-radius: 8px !important;
+            /* Slightly smaller border radius */
+        }
+    }
+}
+
+@media (min-width: 768px) {
+
+    /* Denna regel behålls för att åsidosätta Bootstraps text-align: left för textblock om det behövs */
+    .textblock.alignment--left,
+    .textblock.alignment--left :not(ul):not(ol):not(li) {
+        text-align: left !important;
+    }
+
+    /* Regler för att centrera h3 med hjälp av de unika ID:na */
+    #malmo-heading,
+    #malmo-hours,
+    #lund-hours,
+    #buss-hours,
+    #lund-heading,
+    #buss-heading {
+        text-align: center !important;
+        margin-bottom: 0 !important;
+        /* Säkerställ även att marginalen är noll */
+    }
+}
+
+#malmo-heading,
+#lund-heading,
+#buss-heading {
+    margin-top: 6px !important;
+}
+
+
+
+/* =============================================================
+   FOOTER STYLES - Praktikertjänst Vaccincenter
+   Version: 2.0 (Properly Organised Edition)
+   
+   Table of Contents:
+   1. CSS Variables & Global Footer Settings
+   2. Structural Layout & Spacing
+   3. Typography & Text Elements
+   4. Links & Interactive Elements
+   5. Component-Specific Styles
+      5.1 Text Blocks
+      5.2 Maps & iFrames
+      5.3 Logo Container
+   6. Navigation Bar (footer__link-nav)
+   7. Responsive Breakpoints
+   8. Utility Overrides
+   ============================================================= */
+
+/* =============================================================
+   1. CSS VARIABLES & GLOBAL FOOTER SETTINGS
+   ============================================================= */
+footer.footer {
+    font-family: filsonpro, sans-serif !important;
+    background-color: #eff9ff !important;
+    color: #012363 !important;
+    padding: 24px 16px !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* =============================================================
+   2. STRUCTURAL LAYOUT & SPACING
+   ============================================================= */
+/* Container fluid adjustments */
+.footer .container-fluid {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+/* Row spacing normalisation */
+.row.row1 {
+    position: relative;
+    z-index: 2;
+    margin-bottom: -214px !important;
+    padding: 0 !important;
+}
+
+/* Remove all default row margins */
+div.row.row6,
+div.row.row5,
+div.row.row4,
+div.row.row3,
+div.row.row2,
+div.row.row1 {
+    margin-top: 0 !important;
+}
+
+/* Global margin resets for structural elements */
+.footer .block-container,
+.footer .textblock,
+.footer .row {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin: 0;
+    /* Belt and braces approach */
+}
+
+/* =============================================================
+   3. TYPOGRAPHY & TEXT ELEMENTS
+   ============================================================= */
+/* Heading styles */
+footer.footer h4,
+footer.footer h5 {
+    font-family: filsonpro, sans-serif !important;
+    color: #012363 !important;
+    margin-top: 1em !important;
+    margin-bottom: 0.5em !important;
+    line-height: 1.3 !important;
+}
+
+footer.footer h4 {
+    font-size: 18px !important;
+    /* Note: Original had "18" without px */
+    font-weight: 600 !important;
+    /* Adjusted from 550 */
+    margin-top: 0 !important;
+}
+
+footer.footer h5 {
+    font-size: 16px !important;
+    /* Note: Original had "16" without px */
+    font-weight: 500 !important;
+}
+
+/* Special case for styled h4 elements */
+.footer h4[style*="color: #1f7ea4"] {
+    margin-top: 8px !important;
+}
+
+/* Paragraph styles */
+footer.footer p {
+    font-family: filsonpro, sans-serif !important;
+    font-size: 14px !important;
+    color: #003366 !important;
+    line-height: 1.6 !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+footer.footer p:last-child,
+footer.footer .textblock__body>p:last-of-type {
+    margin-bottom: 0 !important;
+}
+
+/* =============================================================
+   4. LINKS & INTERACTIVE ELEMENTS
+   ============================================================= */
+/* General link styles */
+footer.footer a {
+    font-family: filsonpro, sans-serif !important;
+    color: var(--clr-body-text) !important;
+    text-decoration: underline !important;
+    font-weight: normal !important;
+}
+
+footer.footer a:hover {
+    color: var(--clr-brand-500) !important;
+    text-decoration: none !important;
+}
+
+/* Non-tel/mailto links */
+footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]) {
+    font-family: filsonpro, sans-serif !important;
+    color: #044999 !important;
+    text-decoration: underline !important;
+    font-size: inherit !important;
+    font-weight: normal !important;
+}
+
+footer.footer p a:not([href^="tel:"]):not([href^="mailto:"]):hover {
+    text-decoration: none !important;
+}
+
+/* Tel/mailto specific styling */
+footer.footer a[href^="tel:"],
+footer.footer a[href^="mailto:"] {
+    font-family: filsonpro, sans-serif !important;
+    color: #0066CC !important;
+    text-decoration: underline !important;
+    font-size: inherit !important;
+}
+
+footer.footer a[href^="tel:"]:hover,
+footer.footer a[href^="mailto:"]:hover {
+    text-decoration: none !important;
+    color: #004c99 !important;
+}
+
+/* =============================================================
+   5. COMPONENT-SPECIFIC STYLES
+   ============================================================= */
+
+/* --- 5.1 Text Blocks --- */
+footer.footer .block.textblock {
+    margin-bottom: 20px !important;
+}
+
+footer.footer .block.textblock:last-of-type {
+    margin-bottom: 0 !important;
+}
+
+footer.footer .block.textblock,
+footer.footer .textblock__body {
+    background-color: transparent !important;
+}
+
+/* --- 5.2 Maps & iFrames --- */
+/* Map container styling */
+div[style*="border-radius: 12px; overflow: hidden; margin: 0"] {
+    margin: 0 !important;
+}
+
+footer.footer .textblock__body>div[style*="width"][style*="height"][style*="border-radius"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+footer.footer .textblock__body>div[style*="width"][style*="height"][style*="border-radius"] iframe {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* --- 5.3 Logo Container --- */
+div[style*="text-align: center; margin: 24px"] {
+    margin: 0 !important;
+}
+
+/* =============================================================
+   6. NAVIGATION BAR (footer__link-nav)
+   ============================================================= */
+nav.footer__link-nav {
+    background-color: #1f7ea4 !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    font-family: filsonpro, sans-serif !important;
+}
+
+/* Navigation list */
+nav.footer__link-nav ul#footer__links {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    justify-content: center !important;
+}
+
+nav.footer__link-nav ul#footer__links>li.col {
+    flex-grow: 0 !important;
+    flex-basis: auto !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    text-align: center;
+}
+
+/* Navigation links */
+nav.footer__link-nav a.footer__link {
+    font-family: filsonpro, sans-serif !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+nav.footer__link-nav a.footer__link:hover {
+    text-decoration: underline !important;
+}
+
+/* Hamburger menu button */
+nav.footer__link-nav button#footer__links-toggle-button {
+    background: transparent !important;
+    border: 1px solid #ffffff !important;
+    padding: 8px 10px !important;
+    margin-left: 15px;
+    margin-bottom: 10px !important;
+    cursor: pointer !important;
+}
+
+nav.footer__link-nav button#footer__links-toggle-button .hamburger-menu__line {
+    background-color: #ffffff !important;
+    display: block !important;
+    height: 2px !important;
+    width: 22px !important;
+    margin: 4px auto !important;
+}
+
+/* =============================================================
+   7. RESPONSIVE BREAKPOINTS
+   ============================================================= */
+@media (max-width: 991.98px) {
+
+    /* Mobile navigation states */
+    nav.footer__link-nav ul#footer__links.open,
+    nav.footer__link-nav ul#footer__links:target {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    nav.footer__link-nav ul#footer__links.open>li.col,
+    nav.footer__link-nav ul#footer__links:target>li.col {
+        width: 100% !important;
+        margin-bottom: 5px !important;
+    }
+
+    nav.footer__link-nav ul#footer__links.open>li.col:last-child,
+    nav.footer__link-nav ul#footer__links:target>li.col:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+
+p,
+span,
+li,
+a,
+div {
+    font-family: var(--ff-primary) !important;
+    color: var(--clr-brand-100) !important;
+    font-size: var(--fs-text);
+    line-height: var(--lh-text);
+}
+
+.navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--collapsed,
+.navigation__item--has-mega-menu .navigation__item-category .navigation__item-chevron--expanded {
+    font-size: .75rem;
+    margin-left: .5rem;
+}
+
+.fa,
+.fab,
+.fad,
+.fal,
+.far,
+.fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+
+.fa,
+.fas,
+.far,
+.fal,
+.fad,
+.fab {
+    display: inline-block !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-rendering: auto !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-size: 1em !important;
+    font-family: Font Awesome\ 5 Pro !important;
+}
+
+@media (max-width: 575.98px) {
+
+    .textblock .contact p,
+    .textblock .contact h4,
+    .textblock .contact h5 {
+        text-align: left !important;
+    }
+
+    .contact p {
+        text-align: left !important;
+        align-self: flex-start !important;
+        width: 100% !important;
+        margin-bottom: 0 !important;
+        display: block !important;
+    }
+
+    /* Force row breaks for contact labels */
+}
+
+/* --- CUSTOM HEADER OVERRIDES --- */
+
+/* Make the main header a flex column to stack logo and menu vertically */
+.header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    /* Child rows can span full width for backgrounds */
+    height: auto !important;
+    /* Adjust height dynamically */
+}
+
+/* Reconfigure the .navigation container to also be a column */
+.navigation {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    /* Reset fixed height */
+    padding: 0 !important;
+    /* Reset padding if needed */
+    margin: 0 auto !important;
+    /* Center if within a wider container */
+    /* max-width: 1440px; */
+    /* Or your preferred max-width for content */
+}
+
+/* 1. Navigation Logo Row */
+/* Assuming .navigation__logo is the direct child for the logo content */
+.navigation__logo {
+    order: -1 !important;
+    /* Make this the first row */
+    width: 100% !important;
+    /* Take full width to allow internal alignment */
+    display: flex !important;
+    justify-content: flex-end !important;
+    /* Push logo content to the right */
+    padding-top: 30px !important;
+    padding-right: 16px !important;
+    padding-bottom: 25px !important;
+    padding-left: 16px !important;
+    margin-left: 30px !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+    /* Reset original height */
+    line-height: normal !important;
+    /* Reset original line-height */
+    margin: 0 !important;
+    /* Reset original margins */
+}
+
+/* Ensure the logo image/link itself aligns to the right if it's a block/flex item inside .navigation__logo */
+.navigation__logo>a,
+.navigation__logo>img,
+.navigation__logo>svg {
+    margin-right: auto !important;
+    /* Push to right */
+    margin-left: 95px !important;
+}
+
+/* 2. Header Navigation Menu Row */
+/* Assuming .navigation__left--menu contains your main navigation items (like <ul>) */
+/* If your menu is structured differently (e.g. .navigation__item directly under .navigation), adjust selector */
+.navigation__left--menu,
+nav.navigation__item--has-mega-menu .navigation__item-category,
+/* Example if categories are direct items */
+.header-navigation-menu
+
+/* Or a custom class you apply to your main menu container */
+    {
+    order: 2 !important;
+    /* Make this the second row */
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    /* Spread items "wall to wall" */
+    width: 100% !important;
+    padding: 0 0 !important;
+    /* Adjust vertical padding (var(--spacing-3)) */
+    margin: 0 !important;
+    list-style: none !important;
+    /* If it's a UL */
+    height: 60px !important;
+    /* Reset original height */
+    flex-wrap: nowrap;
+    /* Or 'wrap' if you want items to wrap on smaller screens */
+}
+
+/* Styling for individual menu items within the menu row */
+.navigation__item {
+    flex-grow: 1 !important;
+    /* Allow items to grow to fill space */
+    flex-basis: 0 !important;
+    /* Distribute space evenly */
+    text-align: center !important;
+    /* Center text within each item */
+    padding: 0 0.5rem !important;
+    /* Adjust padding (var(--spacing-2)) */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-left: none !important;
+    /* Remove existing borders if any */
+    border-right: none !important;
+}
+
+
+/* Cleanup potentially conflicting styles from Bootstrap or template */
+.header .float-right,
+.header .pull-right {
+    float: none !important;
+}
+
+.header [class*="position-absolute"] {
+    position: relative !important;
+    /* Or static, depending on desired flow */
+}
+
+.clinic-card:nth-child(3) .hours {
+    top: 46% !important;
+}
+
+/* Map Embed System - Because inline styles are for amateurs */
+.map-embed-container {
+    --map-radius: 12px;
+    --map-shadow: 0 4px 20px rgba(1, 35, 99, 0.12);
+    --map-max-width: 375px;
+    --map-aspect-ratio: 16/9;
+    /* Golden ratio would be pretentious */
+
+    position: relative;
+    width: 100%;
+    max-width: var(--map-max-width);
+    border-radius: var(--map-radius);
+    overflow: hidden;
+    box-shadow: var(--map-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: var(--map-aspect-ratio);
+}
+
+/* Hover state - because interactivity matters */
+.map-embed-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(1, 35, 99, 0.16);
+}
+
+.map-embed-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* Responsive adjustments - because mobile users exist */
+@media (max-width: 576px) {
+    .map-embed-container {
+        --map-max-width: 100%;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+}
+
+/* Loading state - for those on Swedish countryside internet */
+.map-embed-container::before {
+    content: "Laddar karta...";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 14px;
+    z-index: -1;
+}
+
+/* Print styles - because someone always prints web pages */
+@media print {
+    .map-embed-container {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+}
+
+.button-container {
+    display: flex !important;
+    align-items: center !important;
+    /* Your precious vertical centering */
+    justify-content: flex-start !important;
+    /* Or center, if you're feeling adventurous */
+    width: 100% !important;
+    margin-top: -6px !important;
+    /* Breathing room from the address */
+    margin-left: 20% !important;
+    margin-right: 20% !important;
+}

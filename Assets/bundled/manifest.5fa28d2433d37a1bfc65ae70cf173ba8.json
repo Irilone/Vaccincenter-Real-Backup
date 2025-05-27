@@ -1,0 +1,78 @@
+{
+  "icons": [
+    {
+      "src": "/Assets/bundled/icon_512x512.9ca2438a31bc9a6bc76413fdaab84438.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Assets/bundled/icon_384x384.b18aabff8dcbe165f7fbb9cb63d64b5c.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Assets/bundled/icon_256x256.928ae2a9b3fa2abddc1fbed7fe4c4d00.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Assets/bundled/icon_192x192.5725ca238248aa262398d517b2172c1a.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Assets/bundled/icon_128x128.c58a524a544b8fc189329fe8423d638c.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Assets/bundled/icon_96x96.fa095654bbb1457fc71320bc2eaf842e.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/Assets/bundled/icon_512x512.9ca2438a31bc9a6bc76413fdaab84438.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/Assets/bundled/icon_384x384.b18aabff8dcbe165f7fbb9cb63d64b5c.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/Assets/bundled/icon_256x256.928ae2a9b3fa2abddc1fbed7fe4c4d00.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/Assets/bundled/icon_192x192.5725ca238248aa262398d517b2172c1a.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Assets/bundled/icon_128x128.c58a524a544b8fc189329fe8423d638c.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/Assets/bundled/icon_96x96.fa095654bbb1457fc71320bc2eaf842e.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Praktikertjänst CareUnit v.3",
+  "short_name": "PTJ-CareUnit",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "Praktikertjänsts mottagningswebbar",
+  "background_color": "#072a3a",
+  "theme_color": "#00ADD0"
+}
