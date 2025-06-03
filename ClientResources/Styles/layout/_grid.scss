@@ -1,0 +1,125 @@
+// _grid.scss
+// Grid layout system following BEM methodology and mobile-first approach
+
+@use 'sass:math';
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--spacing-4) * -1);
+  margin-right: calc(var(--spacing-4) * -1);
+  
+  // Modifier: No gutters
+  &--no-gutters {
+    margin-left: 0;
+    margin-right: 0;
+    
+    > .col,
+    > [class*="col-"] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  
+  // Modifier: Centered content
+  &--center {
+    justify-content: center;
+  }
+  
+  // Modifier: Vertically centered
+  &--middle {
+    align-items: center;
+  }
+  
+  // Modifier: Bottom aligned
+  &--bottom {
+    align-items: flex-end;
+  }
+  
+  // Modifier: Equal height columns
+  &--equal-height {
+    > .col,
+    > [class*="col-"] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  // Hiding row6 completely (from original code)
+  &.row6 {
+    display: none;
+  }
+}
+
+// Column base styles
+.col {
+  position: relative;
+  width: 100%;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+// Column width variations
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    position: relative;
+    width: 100%;
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
+    flex: 0 0 math.percentage(math.div($i, 12));
+    max-width: math.percentage(math.div($i, 12));
+  }
+}
+
+// Responsive column classes
+@each $breakpoint in (sm, md, lg, xl) {
+  @include respond-to($breakpoint) {
+    @for $i from 1 through 12 {
+      .col-#{$breakpoint}-#{$i} {
+        position: relative;
+        width: 100%;
+        padding-left: var(--spacing-4);
+        padding-right: var(--spacing-4);
+        flex: 0 0 math.percentage(math.div($i, 12));
+        max-width: math.percentage(math.div($i, 12));
+      }
+    }
+  }
+}
+
+// Column offset classes
+@for $i from 0 through 11 {
+  .offset-#{$i} {
+    margin-left: math.percentage(math.div($i, 12));
+  }
+}
+
+// Responsive offset classes
+@each $breakpoint in (sm, md, lg, xl) {
+  @include respond-to($breakpoint) {
+    @for $i from 0 through 11 {
+      .offset-#{$breakpoint}-#{$i} {
+        margin-left: math.percentage(math.div($i, 12));
+      }
+    }
+  }
+}
+
+// Auto margins for flexbox alignment
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+// For backward compatibility
+.row.no-gutters {
+  @extend .row--no-gutters;
+}

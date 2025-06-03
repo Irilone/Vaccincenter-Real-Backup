@@ -1,0 +1,105 @@
+// _service-item.scss
+// Service item component following BEM methodology
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.service-item {
+  @include card; // Keep for base card styles like border-radius if not overridden
+  @include flex-column;
+
+  width: 200px; // From local-styles
+  height: auto; // Override existing height: 100%
+  background-color: var(--bg-service); // From local-styles
+  border-radius: var(--border-radius); // Ensure it's applied
+  padding: var(--spacing-5); // 24px, from local-styles
+  align-items: center;
+  text-align: center; // From local-styles
+  box-shadow: var(--shadow-sm); // From local-styles
+  transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out; // From local-styles
+  
+  // Element: Icon container
+  &__icon-container {
+    @include flex-center;
+
+    width: 80px; // From local-styles (applied to img, using container)
+    height: 80px; // From local-styles (applied to img, using container)
+    margin-bottom: var(--spacing-4); // 16px, from local-styles
+  }
+  
+  // Element: Service icon
+  &__icon {
+    width: 100%;
+    height: 100%; // Ensure icon fills container if container is sized
+    object-fit: contain;
+    // filter: brightness(0) invert(1); // Simple filter to make icons white, if needed. Assuming SVGs are pre-styled or this is handled elsewhere.
+    transition: transform var(--transition-speed) var(--transition-easing);
+  }
+  
+  // Element: Title
+  &__title {
+    font-size: 1.1rem; // From local-styles
+    font-weight: 600;
+    color: var(--color-white); // From local-styles
+    margin-bottom: 0; // From local-styles
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  // Element: Description
+  // &__description { // Commenting out as not present in local-styles for service-item
+  //   text-align: center;
+  //   color: var(--color-gray-700);
+  //   margin-bottom: var(--spacing-3);
+  // }
+  
+  // Hover state
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md); // From local-styles
+    
+    .service-item__icon {
+      transform: scale(1.1);
+    }
+  }
+
+  // Media queries from local-styles for service-item width
+  @include respond-to('lg') { // Corresponds to max-width: 1200px in local-styles
+    width: 180px;
+  }
+
+  @include respond-to('md') { // Corresponds to max-width: 992px in local-styles
+    width: 170px;
+  }
+
+  @include respond-to('sm') { // Corresponds to max-width: 768px in local-styles
+    width: 160px;
+  }
+
+  // Potentially for very small screens, from local-styles (max-width: 576px)
+  @media (max-width: 576px) {
+    width: 140px;
+  }
+}
+
+// For backward compatibility
+.service-grid .service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service-item .icon-container {
+  @extend .service-item__icon-container;
+}
+
+.service-item .service-icon {
+  @extend .service-item__icon;
+}
+
+.service-item .service-title {
+  @extend .service-item__title;
+}

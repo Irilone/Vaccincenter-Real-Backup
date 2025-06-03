@@ -1,0 +1,139 @@
+// _buttons.scss
+// Button components following BEM methodology
+
+@use '../abstracts/mixins' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4); // Default padding, specific buttons can override
+  border-radius: var(--border-radius);
+  font-weight: 500; // From local-styles
+  font-size: 1rem; // Default from local-styles
+  text-align: center;
+  text-decoration: none; // From local-styles
+  cursor: pointer;
+  border: none; // Default border, specific buttons can override
+  transition: all var(--transition-speed) ease-in-out; // From local-styles
+  letter-spacing: normal; // From local-styles
+  font-variant: normal; // From local-styles
+  font-feature-settings: normal; // From local-styles
+  font-variation-settings: normal; // From local-styles
+  text-transform: none; // From local-styles
+  
+  // Icon spacing
+  .fa, .fas, .far, .fal, .fab {
+    margin-right: var(--spacing-2);
+  }
+  
+  // Modifier: Primary button
+  &--primary {
+    background-image: linear-gradient(to bottom, var(--blue-dark), var(--color-primary)); // From local-styles
+    color: var(--color-white);
+    border: 1px solid var(--blue-dark); // From local-styles
+    padding: var(--spacing-3) var(--spacing-5); // From local-styles
+    box-shadow: var(--shadow-sm); // From local-styles
+    
+    /* 
+     * Hover and focus states
+     * Note: Using rgba instead of color-mix for wider browser support
+     * as required by Browser Baseline rule in user requirements
+     */
+    &:hover, &:focus {
+      background-image: linear-gradient(to bottom, var(--color-primary), var(--blue-dark)); // From local-styles
+      transform: translateY(-2px); // From local-styles
+      box-shadow: var(--shadow-md); // From local-styles
+    }
+  }
+  
+  // Modifier: Secondary button
+  &--secondary {
+    background-image: linear-gradient(to bottom, var(--color-secondary), var(--blue-light)); // From local-styles
+    color: var(--color-white);
+    border: 1px solid var(--blue-light); // From local-styles
+    padding: var(--spacing-3) var(--spacing-5); // From local-styles
+    box-shadow: var(--shadow-sm); // From local-styles
+    
+    /* 
+     * Hover and focus states
+     * Note: Using rgba instead of color-mix for wider browser support
+     * as required by Browser Baseline rule in user requirements
+     */
+    &:hover, &:focus {
+      background-image: linear-gradient(to bottom, var(--blue-light), var(--color-secondary)); // From local-styles
+      transform: translateY(-2px); // From local-styles
+      box-shadow: var(--shadow-md); // From local-styles
+    }
+  }
+  
+  // Modifier: Outline button
+  &--outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    
+    &:hover, &:focus {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      transform: translateY(-4px);
+    }
+  }
+  
+  // Modifier: Small size
+  &--sm {
+    padding: var(--spacing-1) var(--spacing-3);
+    font-size: var(--font-size-sm);
+  }
+  
+  // Modifier: Large size
+  &--lg {
+    padding: var(--spacing-3) var(--spacing-5);
+    font-size: var(--font-size-lg);
+  }
+  
+  // Modifier: Full width
+  &--full {
+    width: 100%;
+  }
+  
+  // Modifier: Disabled state
+  &--disabled,
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // Focus state for accessibility
+  &:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+  }
+}
+
+// For backward compatibility with existing .btn classes
+// This ensures no visual regressions during transition
+.btn-primary {
+  @extend .button;
+  @extend .button--primary;
+}
+
+.btn-secondary {
+  @extend .button;
+  @extend .button--secondary;
+}
+
+// Book buttons component from existing code
+.book-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+  padding-top: var(--spacing-6);
+  
+  @include respond-to('md') {
+    gap: var(--spacing-5);
+  }
+}

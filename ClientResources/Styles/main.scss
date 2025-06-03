@@ -1,0 +1,30 @@
+// main.scss
+// Main entry point for the Vaccincenter SCSS
+// Following BEM naming and Atomic Design principles
+
+/*
+ * This file implements the CSS refactoring following:
+ * - BEM-inspired class naming: block__element--modifier
+ * - Atomic Design: atoms → molecules → organisms
+ * - Mobile-first media queries
+ * - CSS custom properties for theming
+ * - Episerver CMS integration requirements
+ */
+
+// Import Sass math module for math operations
+@use 'sass:math';
+
+// Use all abstracts with no namespace for easy access to variables, mixins and functions
+@use 'abstracts' as *;
+
+// Import component layers following Atomic Design methodology
+@use 'base';
+@use 'atoms';
+@use 'molecules';
+@use 'organisms';
+@use 'layout';
+@use 'themes';
+@use 'episerver';
+
+// This architecture follows BEM naming conventions and Atomic Design principles
+// while ensuring compatibility with Episerver CMS requirements

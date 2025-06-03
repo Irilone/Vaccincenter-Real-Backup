@@ -1,0 +1,1055 @@
+/* Vaccincenter Local Styles - For Episerver CMS integration */
+
+/* CSS Variables */
+:root {
+    --blue-primary: #012363 !important;
+    --blue-dark: #003366 !important;
+    --blue-light: #0076B2 !important;
+    --bg-service: #46b5ff !important;
+    --bg-footer: #eff9ff !important;
+    --text-white: #ffffff !important;
+    --shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.1) !important;
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    --border-radius: 8px !important;
+    --transition-speed: 0.2s !important;
+    --spacing-1: 4px !important;
+    --spacing-2: 8px !important;
+    --spacing-3: 12px !important;
+    --spacing-4: 16px !important;
+    --spacing-5: 24px !important;
+    --spacing-6: 32px !important;
+    --spacing-7: 48px !important;
+    --spacing-8: 64px !important;
+}
+
+/* Base styling with enhanced cross-browser compatibility */
+body {
+    font-family: filsonpro, sans-serif !important;
+    color: var(--blue-primary) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #fff !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-text-rendering: optimizeLegibility !important;
+    -moz-text-rendering: optimizeLegibility !important;
+    -o-text-rendering: optimizeLegibility !important;
+}
+
+/* Text Size Adjustment */
+html {
+    -webkit-text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+    -ms-text-size-adjust: 100% !important;
+    -o-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+}
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+
+/* Global typography settings */
+h1, h2, h3, h4, h5, h6, p, a, span, li, button, input, textarea, select {
+    font-family: filsonpro, sans-serif !important;
+}
+
+/* Heading elements styling based on specifications */
+h1, h2, h3, h4, h5, h6 {
+    font-family: filsonpro, sans-serif !important;
+    font-weight: 500 !important;
+    line-height: 21.6px !important;
+    color: #012363 !important;
+    letter-spacing: normal !important;
+    font-variant: normal !important;
+    font-feature-settings: normal !important;
+    font-variation-settings: normal !important;
+}
+
+h1 { font-size: 32px !important; }
+h2 { font-size: 28px !important; }
+h3 { font-size: 24px !important; }
+h4 { font-size: 20px !important; }
+h5 { font-size: 18px !important; }
+h6 { font-size: 16px !important; }
+
+a {
+    color: #012363 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.header-font {
+    font-family: filsonpro, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    line-height: 21.6px !important;
+    color: #012363 !important;
+    letter-spacing: normal !important;
+    font-variant: normal !important;
+    font-feature-settings: normal !important;
+    font-variation-settings: normal !important;
+}
+
+/* Main container */
+.epi-content-area {
+    width: 100% !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+}
+
+/* Welcome header */
+.welcome-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+    font-family: filsonpro, sans-serif !important;
+    text-align: center !important;
+    min-width: 470px !important;
+}
+
+.welcome-header h3, .welcome-title {
+    font-size: 35px !important;
+    color: var(--blue-primary) !important;
+    margin: 0 0 4px !important;
+    font-weight: 600 !important;
+}
+
+.welcome-header p, .welcome-subtitle {
+    font-size: 25px !important;
+    color: var(--blue-dark) !important;
+    margin: 0 !important;
+    font-weight: 400 !important;
+}
+
+/* Main flex layout with cross-browser compatibility */
+.main-flex,
+.clinic-cards,
+.clinic-card,
+.image-wrapper,
+.clinic-content,
+.info-row,
+.contact,
+.buttons,
+.buttons a,
+.hours,
+.service-grid,
+.service-item,
+.icon-container,
+nav.footer__link-nav ul#footer__links {
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+}
+
+.main-flex {
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
+    -webkit-justify-content: start !important;
+    justify-content: start !important;
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
+    -webkit-align-items: flex-start !important;
+    align-items: flex-start !important;
+    min-width: 92vw !important;
+    min-height: 70vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    gap: 85px !important;
+}
+
+/* Flex Direction Properties with cross-browser compatibility */
+.clinic-cards,
+.clinic-content,
+.info-row,
+.contact,
+.hours,
+.service-item,
+.icon-container {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -moz-box-orient: vertical !important;
+    -moz-box-direction: normal !important;
+    -ms-flex-direction: column !important;
+    -webkit-flex-direction: column !important;
+    flex-direction: column !important;
+}
+
+/* Flex Wrap Properties */
+.book-buttons,
+.row.no-gutters {
+    -webkit-flex-wrap: wrap !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+}
+
+/* Clinic cards container with enhanced styling */
+.clinic-cards {
+    gap: 32px !important;
+    flex: 0 1 800px !important;
+    max-width: 730px !important;
+    min-width: 730px !important;
+    width: 730px !important;
+    box-sizing: border-box !important;
+    padding: 20px 0 !important;
+}
+
+/* Clinic card with enhanced styling to match original design */
+.clinic-card, article.clinic-card {
+    position: relative !important;
+    min-width: 730px !important;
+    max-width: 730px !important;
+    min-height: 209.6px !important;
+    background: -webkit-linear-gradient(150deg, #E5F0F5 0%, #BADFEF 50%, #87CEEB 100%) !important;
+    background: -moz-linear-gradient(150deg, #E5F0F5 0%, #BADFEF 50%, #87CEEB 100%) !important;
+    background: -o-linear-gradient(150deg, #E5F0F5 0%, #BADFEF 50%, #87CEEB 100%) !important;
+    background: linear-gradient(150deg, #E5F0F5 0%, #BADFEF 50%, #87CEEB 100%) !important;
+    -webkit-border-radius: 12px !important;
+    -moz-border-radius: 12px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    -webkit-transition: all 0.2s ease !important;
+    -moz-transition: all 0.2s ease !important;
+    -ms-transition: all 0.2s ease !important;
+    -o-transition: all 0.2s ease !important;
+    transition: all 0.2s ease !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Enhanced hover state with cross-browser compatibility */
+.clinic-card:hover, article.clinic-card:hover {
+    -webkit-transform: translateY(-4px) scale(1.02) !important;
+    -moz-transform: translateY(-4px) scale(1.02) !important;
+    -ms-transform: translateY(-4px) scale(1.02) !important;
+    -o-transform: translateY(-4px) scale(1.02) !important;
+    transform: translateY(-4px) scale(1.02) !important;
+    -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    -moz-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+/* Clinic card inner elements */
+.image-wrapper, article.clinic-card .image-wrapper {
+    flex: 0 0 209.6px !important;
+    aspect-ratio: 1/1 !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.image-wrapper img, article.clinic-card .image-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.clinic-content, article.clinic-card div.clinic-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.clinic-content h3, article.clinic-card div.clinic-content h3 {
+    margin: 0 0 12px !important;
+    font-size: 22px !important;
+    color: #012363 !important;
+    font-weight: 600 !important;
+    font-family: filsonpro, sans-serif !important;
+    line-height: 1.2 !important;
+}
+
+.info-row, article.clinic-card div.clinic-content div.info-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    flex: 1 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+@media (min-width: 768px) {
+    .info-row, article.clinic-card div.clinic-content div.info-row {
+        flex-direction: row !important;
+        gap: var(--spacing-4) !important;
+    }
+}
+
+.contact, article.clinic-card div.clinic-content div.info-row div.contact {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.contact *, article.clinic-card div.clinic-content div.info-row div.contact * {
+    text-align: left !important;
+}
+
+.contact p, article.clinic-card div.clinic-content div.info-row div.contact p {
+    margin-bottom: var(--spacing-2) !important;
+    color: var(--blue-dark) !important;
+    -webkit-hyphens: auto !important;
+    -moz-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    hyphens: auto !important;
+}
+
+.contact-label {
+    font-weight: 600 !important;
+    display: inline-block !important;
+    min-width: 235px !important;
+}
+
+.contact a, article.clinic-card div.clinic-content div.info-row div.contact a {
+    color: var(--blue-light) !important;
+    text-decoration: none !important;
+}
+
+.contact a:hover, article.clinic-card div.clinic-content div.info-row div.contact a:hover {
+    color: var(--blue-primary) !important;
+}
+
+.address {
+    color: var(--blue-dark) !important;
+    word-wrap: break-word !important;
+}
+
+/* Button styling */
+.button-container {
+    margin-top: 10px !important;
+}
+
+.buttons {
+    display: flex !important;
+    gap: 10px !important;
+}
+
+.btn-primary, .btn-secondary, a.btn-primary, a.btn-secondary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    min-width: 150px !important;
+    transition: all 0.3s ease !important;
+    font-family: filsonpro, sans-serif !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer !important;
+    margin: 8px 0 !important;
+    border: none !important;
+}
+
+/* Hide all icons within buttons */
+.btn-primary i, .btn-primary span[class*="fa-"], 
+.btn-secondary i, .btn-secondary span[class*="fa-"],
+a.btn-primary i, a.btn-primary span[class*="fa-"],
+a.btn-secondary i, a.btn-secondary span[class*="fa-"] {
+    display: none !important;
+}
+
+/* Enhanced button styles with prefixes for cross-browser compatibility */
+.btn-primary, a.btn-primary, button.btn-primary {
+    background: -webkit-linear-gradient(145deg, #69D2F1 0%, #5CC0E0 50%, #4FB0D0 100%) !important;
+    background: -moz-linear-gradient(145deg, #69D2F1 0%, #5CC0E0 50%, #4FB0D0 100%) !important;
+    background: -o-linear-gradient(145deg, #69D2F1 0%, #5CC0E0 50%, #4FB0D0 100%) !important;
+    background: linear-gradient(145deg, #69D2F1 0%, #5CC0E0 50%, #4FB0D0 100%) !important;
+    color: #000000 !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    border-radius: 8px !important;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.btn-secondary, a.btn-secondary, button.btn-secondary {
+    background: -webkit-linear-gradient(145deg, #2E5A88 0%, #1F3E6D 50%, #102A4F 100%) !important;
+    background: -moz-linear-gradient(145deg, #2E5A88 0%, #1F3E6D 50%, #102A4F 100%) !important;
+    background: -o-linear-gradient(145deg, #2E5A88 0%, #1F3E6D 50%, #102A4F 100%) !important;
+    background: linear-gradient(145deg, #2E5A88 0%, #1F3E6D 50%, #102A4F 100%) !important;
+    color: #ffffff !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    border-radius: 8px !important;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Button hover transitions */
+.btn-primary:hover, a.btn-primary:hover, button.btn-primary:hover {
+    opacity: 0.9 !important;
+    -webkit-transform: translateY(-2px) !important;
+    -moz-transform: translateY(-2px) !important;
+    -ms-transform: translateY(-2px) !important;
+    -o-transform: translateY(-2px) !important;
+    transform: translateY(-2px) !important;
+    -webkit-box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12) !important;
+    -moz-box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12) !important;
+}
+
+.btn-secondary:hover, a.btn-secondary:hover, button.btn-secondary:hover {
+    opacity: 0.9 !important;
+    -webkit-transform: translateY(-2px) !important;
+    -moz-transform: translateY(-2px) !important;
+    -ms-transform: translateY(-2px) !important;
+    -o-transform: translateY(-2px) !important;
+    transform: translateY(-2px) !important;
+    -webkit-box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12) !important;
+    -moz-box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12) !important;
+}
+
+.btn-group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    margin-top: 20px !important;
+}
+
+/* Service items with enhanced cross-browser compatibility */
+.service-grid {
+    -webkit-flex-wrap: wrap !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    -webkit-justify-content: center !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    margin: 60px auto !important;
+    max-width: 1280px !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    border-radius: 8px !important;
+}
+
+.service-container {
+    background-color: var(--bg-service) !important;
+    padding: 60px 20px !important;
+    margin: 60px 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.service-container h2 {
+    color: #000000 !important;
+    font-family: filsonpro, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 28px !important;
+    text-align: center !important;
+    margin-bottom: 40px !important;
+}
+
+.service-container::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: url('/assets/images/pattern-bg.svg') repeat !important;
+    opacity: 0.1 !important;
+    z-index: 0 !important;
+}
+
+/* Service item with enhanced cross-browser compatibility */
+.service-item {
+    background-color: #fff !important;
+    -webkit-border-radius: 12px !important;
+    -moz-border-radius: 12px !important;
+    border-radius: 12px !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    width: 280px !important;
+    -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    -webkit-transition: all 0.2s ease !important;
+    -moz-transition: all 0.2s ease !important;
+    -ms-transition: all 0.2s ease !important;
+    -o-transition: all 0.2s ease !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Service item hover with cross-browser compatibility */
+.service-item:hover {
+    -webkit-transform: translateY(-8px) !important;
+    -moz-transform: translateY(-8px) !important;
+    -ms-transform: translateY(-8px) !important;
+    -o-transform: translateY(-8px) !important;
+    transform: translateY(-8px) !important;
+    -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    -moz-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.service-item img {
+    width: 80px !important;
+    height: 80px !important;
+    margin-bottom: 20px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.service-item:hover img {
+    transform: scale(1.1) !important;
+}
+
+.service-item h3 {
+    color: #000000 !important;
+    font-size: 22px !important;
+    margin-bottom: 15px !important;
+    font-weight: 600 !important;
+    font-family: filsonpro, sans-serif !important;
+}
+
+.service-item p {
+    color: var(--blue-dark) !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Footer styles with enhanced cross-browser compatibility */
+.footer {
+    background-color: var(--bg-footer) !important;
+    color: var(--blue-primary) !important;
+    padding: 60px 0 !important;
+    margin-top: 80px !important;
+}
+
+/* Map Embed System - For proper Google Maps integration */
+.map-embed-container {
+    --map-radius: 12px;
+    --map-shadow: 0 4px 20px rgba(1, 35, 99, 0.12);
+    --map-max-width: 375px;
+    --map-aspect-ratio: 16/9;
+    
+    position: relative !important;
+    width: 100% !important;
+    max-width: var(--map-max-width) !important;
+    -webkit-border-radius: var(--map-radius) !important;
+    -moz-border-radius: var(--map-radius) !important;
+    border-radius: var(--map-radius) !important;
+    overflow: hidden !important;
+    -webkit-box-shadow: var(--map-shadow) !important;
+    -moz-box-shadow: var(--map-shadow) !important;
+    box-shadow: var(--map-shadow) !important;
+    -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    -moz-transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    -ms-transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    -o-transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    aspect-ratio: var(--map-aspect-ratio) !important;
+}
+
+/* Hover state for map container */
+.map-embed-container:hover {
+    -webkit-transform: translateY(-2px) !important;
+    -moz-transform: translateY(-2px) !important;
+    -ms-transform: translateY(-2px) !important;
+    -o-transform: translateY(-2px) !important;
+    transform: translateY(-2px) !important;
+    -webkit-box-shadow: 0 8px 30px rgba(1, 35, 99, 0.16) !important;
+    -moz-box-shadow: 0 8px 30px rgba(1, 35, 99, 0.16) !important;
+    box-shadow: 0 8px 30px rgba(1, 35, 99, 0.16) !important;
+}
+
+/* Map iframe styling */
+.map-embed-frame {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+    display: block !important;
+}
+
+/* Loading state - for those on slower connections */
+.map-embed-container::before {
+    content: "Laddar karta..." !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: #666 !important;
+    font-size: 14px !important;
+    z-index: -1 !important;
+}
+
+/* Responsive adjustments for map */
+@media (max-width: 576px) {
+    .map-embed-container {
+        --map-max-width: 100%;
+        margin: 0 !important;
+    }
+}
+
+.footer-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    gap: 40px !important;
+}
+
+.footer-column {
+    flex: 1 !important;
+    min-width: 250px !important;
+    margin-bottom: 20px !important;
+}
+
+.footer-column h3 {
+    font-size: 22px !important;
+    margin-bottom: 20px !important;
+    color: var(--blue-primary) !important;
+    font-weight: 600 !important;
+    font-family: filsonpro, sans-serif !important;
+}
+
+.footer-column p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 15px !important;
+    color: var(--blue-dark) !important;
+}
+
+.footer-column a {
+    color: var(--blue-light) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.footer-column a:hover {
+    color: var(--blue-primary) !important;
+    text-decoration: underline !important;
+}
+
+/* Note: Due to Episerver CMS integration constraints, inline styles in HTML cannot be moved to external CSS files.
+   These styles must remain in the HTML templates as they are dynamically generated by the CMS.
+   The !important flag is necessary to override default CMS styles while maintaining the original design. */
+
+/* Episerver-specific overrides */
+.epi-content-area h1, .epi-content-area h2, .epi-content-area h3, 
+.epi-content-area h4, .epi-content-area h5, .epi-content-area h6 {
+    color: #012363 !important;
+    font-family: filsonpro, sans-serif !important;
+}
+
+.epi-content-area .textblock__body h4 {
+    font-family: filsonpro, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 18px !important;
+    line-height: 21.6px !important;
+    color: #012363 !important;
+    letter-spacing: normal !important;
+}
+
+/* Ensure all links in Episerver content follow the specified color */
+.epi-content-area a, .footer__link, .textblock__body a {
+    color: #012363 !important;
+    text-decoration: none !important;
+}
+
+.epi-content-area a:hover, .footer__link:hover, .textblock__body a:hover {
+    text-decoration: underline !important;
+}
+
+/* Navigation styles */
+.header {
+    background-color: white !important;
+    border-bottom: 1px solid rgba(1, 35, 99, 0.1) !important;
+    box-shadow: var(--shadow-sm) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+}
+
+.logo-container img {
+    max-height: 70px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.logo-container:hover img {
+    transform: scale(1.05) !important;
+}
+
+.nav-container {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 15px 30px !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+}
+
+.logo-row {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 20px 0 15px !important;
+    border-bottom: 1px solid rgba(1, 35, 99, 0.1) !important;
+    margin-bottom: 15px !important;
+}
+
+.logo-container {
+    display: block !important;
+    text-align: center !important;
+    transition: transform 0.3s ease !important;
+    max-width: 240px !important;
+}
+
+.logo-container img {
+    width: 100% !important;
+    max-width: 220px !important;
+    height: auto !important;
+}
+
+.nav-menu-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.nav-links {
+    display: flex !important;
+    gap: 30px !important;
+    align-items: center !important;
+}
+
+.nav-links a {
+    color: var(--blue-primary) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    padding: 8px 12px !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    font-family: filsonpro, sans-serif !important;
+}
+
+.nav-links a:after {
+    content: '' !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 2px !important;
+    background-color: var(--blue-light) !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    transition: width 0.3s ease !important;
+}
+
+.nav-links a:hover {
+    color: var(--blue-light) !important;
+}
+
+.nav-links a:hover:after {
+    width: 70% !important;
+}
+
+/* Mobile menu */
+.mobile-menu-button {
+    display: none !important;
+    cursor: pointer !important;
+    background: none !important;
+    border: none !important;
+    font-size: 24px !important;
+    color: var(--blue-primary) !important;
+}
+
+@media (max-width: 992px) {
+    .mobile-menu-button {
+        display: block !important;
+    }
+    
+    .nav-links {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 20px !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+    
+    .nav-links.open {
+        display: flex !important;
+    }
+    
+    .nav-links a {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 15px !important;
+    }
+}
+
+/* Responsive media queries */
+@media (max-width: 1280px) {
+    .main-flex {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 40px !important;
+    }
+    
+    .clinic-cards {
+        min-width: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .clinic-card, article.clinic-card {
+        min-width: auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    .logo-row {
+        padding: 15px 0 !important;
+    }
+    
+    .logo-container img {
+        max-width: 180px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-header h3, .welcome-title {
+        font-size: 28px !important;
+    }
+    
+    .welcome-header p, .welcome-subtitle {
+        font-size: 20px !important;
+    }
+    
+    .service-grid {
+        gap: 20px !important;
+    }
+    
+    .service-item {
+        width: calc(50% - 20px) !important;
+        padding: 20px 15px !important;
+    }
+    
+    .service-item h3 {
+        font-size: 18px !important;
+    }
+    
+    .btn-primary, .btn-secondary, a.btn-primary, a.btn-secondary {
+        min-width: 120px !important;
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+    }
+    
+    .logo-row {
+        padding: 10px 0 !important;
+    }
+    
+    .logo-container img {
+        max-width: 150px !important;
+    }
+    
+    .nav-container {
+        padding: 10px 15px !important;
+    }
+    
+    /* Ensure Episerver content areas are properly styled */
+    .epi-content-area {
+        padding: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        width: 100% !important;
+    }
+    
+    .clinic-card, article.clinic-card {
+        flex-direction: column !important;
+    }
+    
+    .image-wrapper, article.clinic-card .image-wrapper {
+        width: 100% !important;
+        aspect-ratio: 16/9 !important;
+    }
+    
+    .clinic-content, article.clinic-card div.clinic-content {
+        padding: 15px !important;
+    }
+    
+    .info-row, article.clinic-card div.clinic-content div.info-row {
+        flex-direction: column !important;
+    }
+    
+    .btn-group {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .btn-primary, .btn-secondary, a.btn-primary, a.btn-secondary {
+        width: 100% !important;
+    }
+    
+    .logo-row {
+        padding: 5px 0 !important;
+    }
+    
+    .logo-container img {
+        max-width: 120px !important;
+    }
+    
+    /* Ensure proper font sizes on mobile */
+    h1 { font-size: 24px !important; }
+    h2 { font-size: 22px !important; }
+    h3 { font-size: 20px !important; }
+    h4 { font-size: 18px !important; }
+    h5 { font-size: 16px !important; }
+    h6 { font-size: 14px !important; }
+    
+    /* Adjust spacing for Episerver content areas */
+    .epi-content-area {
+        padding: 5px !important;
+    }
+}
+
+.nav-links a:hover {
+    color: #0076B2 !important;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .clinic-card {
+        width: calc(50% - 20px) !important;
+    }
+    
+    .service-item {
+        width: 180px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .clinic-cards {
+        flex-direction: column !important;
+    }
+    
+    .clinic-card {
+        width: 100% !important;
+    }
+    
+    .info-row {
+        flex-direction: column !important;
+    }
+    
+    .contact, .hours {
+        width: 100% !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .footer-column {
+        width: 100% !important;
+    }
+    
+    .service-grid {
+        gap: 15px !important;
+    }
+    
+    .service-item {
+        width: 160px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .service-grid {
+        justify-content: space-around !important;
+    }
+    
+    .service-item {
+        width: 140px !important;
+    }
+    
+    .buttons {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+/* Final overrides for specific elements */
+
+/* Ensure all button text is properly styled */
+.btn-primary, .btn-secondary, a.btn-primary, a.btn-secondary,
+button.btn-primary, button.btn-secondary {
+    font-family: filsonpro, sans-serif !important;
+    letter-spacing: normal !important;
+    font-variant: normal !important;
+    font-feature-settings: normal !important;
+    font-variation-settings: normal !important;
+    text-transform: none !important;
+}
+
+/* Additional styling for service items */
+.service-container .textblock__body h3,
+.service-container .service-item h3 {
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+/* Additional overrides for Episerver elements */
+.epi-wrapper h1, .epi-wrapper h2, .epi-wrapper h3,
+.epi-wrapper h4, .epi-wrapper h5, .epi-wrapper h6 {
+    font-family: filsonpro, sans-serif !important;
+    font-weight: 500 !important;
+    line-height: 21.6px !important;
+    color: #012363 !important;
+}
+
+/* Footer text styles */
+.footer__heading, .footer__subheading {
+    font-family: filsonpro, sans-serif !important;
+    font-weight: 500 !important;
+    color: #012363 !important;
+}
+
+/* Fix any CMS-specific elements that might override our styles */
+[class*="cms-"] h1, [class*="cms-"] h2, [class*="cms-"] h3,
+[class*="cms-"] h4, [class*="cms-"] h5, [class*="cms-"] h6,
+[class*="cms-"] p, [class*="cms-"] a, [class*="cms-"] span {
+    font-family: filsonpro, sans-serif !important;
+    color: #012363 !important;
+}

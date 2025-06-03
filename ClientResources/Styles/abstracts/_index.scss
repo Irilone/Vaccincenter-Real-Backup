@@ -1,0 +1,6 @@
+// abstracts/_index.scss
+// Forward all abstract utilities for use throughout the codebase
+
+@forward 'variables';
+@forward 'mixins';
+@forward 'functions';

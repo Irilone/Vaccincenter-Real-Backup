@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0">
+    <title>Praktikertjänst Vaccincenter - Mall</title>
+
+    <!-- Filson Pro font -->
+    <link href="https://resources.praktikertjanst.se/fonts/filsonpro/all.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../../../Assets/icons/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../../../../Assets/icons/favicon.png">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="../../../../assets-img/asset 1.svg" alt="Vaccincenter Logotyp" style="height: 40px;"> 
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Boka tid</a>
+                        </li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPriser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Priser
+                                <img src="../../../../assets-img/asset 20.png" alt="chevron" class="nav-chevron ms-1" style="height: 10px; vertical-align: middle;"> 
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownPriser">
+                                <li><a class="dropdown-item" href="#">Prislista 1</a></li>
+                                <li><a class="dropdown-item" href="#">Prislista 2</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Specialpriser</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Frågor och svar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Placeholder -->
+    <main role="main" class="container py-4">
+    <!-- Episerver Content Area -->
+    <div class="epi-content-area">
+        <!-- Centered Welcome Header -->
+        <div class="welcome-header">
+            <h3 class="welcome-title">Välkommen till Vaccincenter Varvet!</h3>
+            <p class="welcome-subtitle">Välj en av våra mottagningar</p>
+        </div>
+        <!-- Main Flex Layout - cross-browser flex container -->
+        <p>&nbsp;</p>
+        <!-- 
+            Main Flex Layout - cross-browser flex container.
+            Contains 3 cards with information about the 3 clinics.
+            Each card has a title, an image, address, phone number, email, opening hours and two buttons.
+            The buttons are "Boka tid" and "Mer info".
+            The "Boka tid" button links to the booking page.
+            The "Mer info" button links to the clinic's information page.
+        -->
+        <div class="main-flex" role="main"><!-- Left: Clinic Cards (2/3 width) -->
+            <div class="clinic-cards"><!-- Card 1: Varvet i Malmö -->
+                <article class="clinic-card">
+                    <div class="image-wrapper"><img
+                            src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/malmosmall.jpg,,144218?epieditmode=False"
+                            alt="Vaccincenter Varvet, Malmö" /></div>
+                    <div class="clinic-content">
+                        <h3 id="malmo-heading">Vaccincenter Varvet i Malmö</h3>
+                        <div class="info-row">
+                            <div class="contact">
+                                <p><span class="contact-label">Telefon:</span> <a href="tel:040-6556644">040-655 66
+                                        44</a></p>
+                                <p><span class="contact-label">E-post:</span> <a
+                                        href="mailto:vaccincenter.varvet@ptj.se">vaccincenter.varvet@ptj.se</a></p>
+                                <p class="address"><span class="contact-label">Adress:</span> Stora Varvsgatan 27, 211
+                                    10
+                                    Malmö</p>
+                                <div class="button-container">
+                                    <div class="buttons"><a class="btn-primary"
+                                            href="https://mittvaccin.se/mottagning/9759" target="_blank"
+                                            rel="noopener">Boka tid</a> <a class="btn-secondary"
+                                            href="/episerver/CMS/Content/vaccincenter-varvet/mottagningar/varvet-malmo-vaccin,,141986/?epieditmode=False"
+                                            target="_blank" rel="noopener">Mer info</a></div>
+                                </div>
+                            </div>
+                            <div class="hours">
+                                <h4 id="malmo-hours">&Ouml;ppettider</h4>
+                                <ul>
+                                    <li><span class="day">M&aring;n</span><span class="time">10:00-19:00</span></li>
+                                    <li><span class="day">Tisdag </span><span class="time">10:00-18:00</span></li>
+                                    <li><span class="day">Onsdag</span><span class="time">10:00-18:00</span></li>
+                                    <li><span class="day">Torsdag</span><span class="time">10:00-18:00</span></li>
+                                    <li><span class="day">Fredag</span><span class="time">10:00-17:00</span></li>
+                                    <li><span class="day">L&ouml;r</span><span class="time">10:00-14:00</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 2: Varvet i Lund -->
+                <article class="clinic-card">
+                    <div class="image-wrapper"><img
+                            src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/lund4small.jpg,,144207?epieditmode=False"
+                            alt="Vaccincenter Varvet, Lund" /></div>
+                    <div class="clinic-content">
+                        <h3 id="lund-heading">Vaccincenter Varvet i Lund</h3>
+                        <div class="info-row">
+                            <div class="contact">
+                                <p><span class="contact-label">Telefon:</span> <a href="tel:046-2716644">046-271 66
+                                        44</a></p>
+                                <p><span class="contact-label">E-post:</span> <a
+                                        href="mailto:vaccincenter.varvet@ptj.se">vaccincenter.varvet@ptj.se</a></p>
+                                <p class="address"><span class="contact-label">Adress:</span> Kung Oskars v&auml;g 19,
+                                    222 35
+                                    Lund</p>
+                                <div class="button-container">
+                                    <div class="buttons"><a class="btn-primary"
+                                            href="https://mittvaccin.se/mottagning/11837" target="_blank"
+                                            rel="noopener">Boka tid</a> <a class="btn-secondary"
+                                            href="/episerver/CMS/Content/vaccincenter-varvet/mottagningar/varvet-lund-vaccin,,141987/?epieditmode=False"
+                                            target="_blank" rel="noopener">Mer info</a></div>
+                                </div>
+                            </div>
+                            <div class="hours">
+                                <h4 id="lund-hours">&Ouml;ppettider</h4>
+                                <ul>
+                                    <li><span class="day">M&aring;n</span><span class="time">10:00-18:00</span></li>
+                                    <li><span class="day">Tisdag</span><span class="time">08:30-16:30</span></li>
+                                    <li><span class="day">Onsdag</span><span class="time">10:00-18:00</span></li>
+                                    <li><span class="day">Torsdag</span><span class="time">10:00-18:00</span></li>
+                                    <li><span class="day">Fredag</span><span class="time">10:00-17:00</span></li>
+                                    <li><span class="day">L&ouml;r</span><span class="time">10:00-15:00</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Card 3: Hälsobussen -->
+                <article class="clinic-card">
+                    <div class="image-wrapper"><img
+                            src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/busssmall.png,,144210?epieditmode=False"
+                            alt="Vaccin- &amp; H&auml;lsohusen" /></div>
+                    <div class="clinic-content">
+                        <h3 id="buss-heading">Vaccin- och H&auml;lsobussen</h3>
+                        <div class="info-row">
+                            <div class="contact">
+                                <p><span class="contact-label">Telefon:</span> <a href="tel:040-6556644">040-655 66
+                                        44</a></p>
+                                <p><span class="contact-label">E-post:</span> <a
+                                        href="mailto:vaccincenter.varvet@ptj.se">vaccincenter.varvet@ptj.se</a></p>
+                                <p class="address"><span class="contact-label">Adress:</span> En ort n&auml;ra dig</p>
+                                <div class="button-container">
+                                    <div class="buttons"><a class="btn-primary"
+                                            href="https://mittvaccin.se/mottagning/9760" target="_blank"
+                                            rel="noopener">Drop-in</a> <a class="btn-secondary"
+                                            href="/episerver/CMS/Content/vaccincenter-varvet/vaccin-och-halsobuss,,136584/?epieditmode=False"
+                                            target="_blank" rel="noopener">Mer info</a></div>
+                                </div>
+                            </div>
+                            <div class="hours">
+                                <h4 id="buss-hours">&Ouml;ppettider</h4>
+                                <ul>
+                                    <li><span class="day">M&aring;n-Fre</span><span class="time">14:30-18:30</span></li>
+                                    <li><span class="day">L&ouml;r-S&ouml;n</span><span class="time">11:00-15:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <!-- Ultra-simple Service Grid for older CMS compatibility -->
+            <div class="service-grid"><a class="service-item"
+                    href="/episerver/CMS/Content/vaccincenter-varvet/vaccin,,137092/?epieditmode=False"> <img
+                        class="service-icon"
+                        src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/ikoner/vaccin.svg,,144217?epieditmode=False"
+                        alt="Vaccin" /> <span class="service-title">Vaccin</span> </a> <a class="service-item"
+                    href="/episerver/CMS/Content/vaccincenter-varvet/mottagningar,,137724/?epieditmode=False"> <img
+                        class="service-icon"
+                        src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/ikoner/mottagningar.svg,,144212?epieditmode=False"
+                        alt="Mottagningar" /> <span class="service-title">Mottagningar</span> </a> <a
+                    class="service-item"
+                    href="/episerver/CMS/Content/vaccincenter-varvet/foretagsvaccinering,,137918/?epieditmode=False">
+                    <img class="service-icon"
+                        src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/ikoner/foretag.svg,,144213?epieditmode=False"
+                        alt="F&ouml;retag" /> <span class="service-title">F&ouml;retag</span> </a> <a
+                    class="service-item"
+                    href="/episerver/CMS/Content/vaccincenter-varvet/reseradgivning,,136585/?epieditmode=False"> <img
+                        class="service-icon"
+                        src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/ikoner/reseradgivning.svg,,144214?epieditmode=False"
+                        alt="Reser&aring;dgivning" /> <span class="service-title">Reser&aring;dgivning</span> </a> <a
+                    class="service-item"
+                    href="/episerver/CMS/Content/vaccincenter-varvet/vaccin-och-halsobuss,,136584/?epieditmode=False">
+                    <img class="service-icon"
+                        src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/ikoner/vaccinbuss.svg,,144216?epieditmode=False"
+                        alt="Vaccin &amp; H&auml;lsobussen" /> <span class="service-title">Vaccin-
+                        &amp;<br />H&auml;lsobussen</span> </a> <a class="service-item"
+                    href="/episerver/CMS/Content/vaccincenter-varvet/intyg-och-halsokontroller,,137694/?epieditmode=False">
+                    <img class="service-icon"
+                        src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/ikoner/intyg.svg,,144215?epieditmode=False"
+                        alt="Intyg &amp; H&auml;lsokontroller" /> <span class="service-title">Intyg
+                        &amp;<br />H&auml;lsokontroller</span> </a> <a class="service-item"
+                    href="/episerver/CMS/Content/vaccincenter-varvet/infor-besok,,137727/?epieditmode=False"> <img
+                        class="service-icon"
+                        src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/ikoner/infbe.svg,,144781?epieditmode=False"
+                        alt="Inf&ouml;r Bes&ouml;k" /> <span class="service-title">Inf&ouml;r<br />Bes&ouml;k</span>
+                </a> <a class="service-item"
+                    href="/episerver/CMS/Content/vaccincenter-varvet/priser,,136579/?epieditmode=False">
+                    <img class="service-icon"
+                        src="/episerver/CMS/Content/globalassets/vaccincenter-varvet/ikoner/priser.svg,,144780?epieditmode=False"
+                        alt="Priser" /> <span class="service-title">Priser</span> </a></div>
+        </div>
+
+
+    </div> <!-- Closing .epi-content-area -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto pt-3">
+        <div class="container pb-3">
+            <div class="row footer-clinic-details">
+                <!-- Vaccincenter Varvet i Malmö -->
+                <div class="col-lg-6 mb-4 mb-lg-0 clinic-info-malmo">
+                    <h4>Vaccincenter Varvet i Malm&ouml;</h4>
+                    <h5>Telefon</h5>
+                    <p><a href="tel:+46406556644">040-655 66 44</a></p>
+                    <h5>E-post</h5>
+                    <p><a href="mailto:vaccincenter.varvet@ptj.se">vaccincenter.varvet@ptj.se</a></p>
+                    <h5>Adress</h5>
+                    <p>Stora Varvsgatan 27<br />211 10 Malm&ouml;</p>
+                    <div class="map-embed-container">
+                        <iframe class="map-embed-frame" title="Vaccincenter Varvet Malm&ouml;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6324.0790246655!2d12.975856485424284!3d55.613156282837195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653a5d04684fe29%3A0x62907f827c80d67!2sPraktikertj%C3%A4nst%20Vaccincenter%20Varvet!5e0!3m2!1ssv!2sse!4v1744367156884!5m2!1ssv!2sse" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+                </div>
+
+                <!-- Vaccincenter Varvet i Lund -->
+                <div class="col-lg-6 clinic-info-lund">
+                    <h4>Vaccincenter Varvet i Lund</h4>
+                    <h5>Telefon</h5>
+                    <p><a href="tel:+46462716644">046-271 66 44</a></p>
+                    <h5>E-post</h5>
+                    <p><a href="mailto:vaccincenter.varvet@ptj.se">vaccincenter.varvet@ptj.se</a></p>
+                    <h5>Adress</h5>
+                    <p>Kung Oskars v&auml;g 19<br />222 35 Lund</p>
+                    <div class="map-embed-container">
+                        <iframe class="map-embed-frame" title="Vaccincenter Varvet Lund" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4831.3631648675055!2d13.1807949038067!3d55.71332939593234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465397ceb76c4183%3A0x5d782608da372942!2sPraktikertj%C3%A4nst%20Vaccincenter%20Kung%20Oskar!5e0!3m2!1ssv!2sse!4v1744367089803!5m2!1ssv!2sse" allowfullscreen="allowfullscreen"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Praktikertjänst Logo -->
+            <div class="text-center mt-4 mb-4 footer-ptj-logo-container"> 
+                 <a href="https://praktikertjanst.se/" target="_blank" rel="noopener">
+                    <img style="max-width: 17.5%; min-width: 120px; height: auto; display: inline-block;" src="../../../../assets-img/asset 1.svg" alt="Praktikertj&auml;nst" /> 
+                </a>
+                <p class="text-muted small mt-2">&copy; <script>document.write(new Date().getFullYear())</script> Praktikertjänst AB</p> 
+            </div>
+        </div>
+        
+        <!-- Footer Links Navigation -->
+        <nav class="footer__link-nav"> 
+            <div class="container">
+                <ul id="footer__links" class="nav justify-content-center"> 
+                    <li class="nav-item col-auto"><a class="nav-link footer__link" href="#">Tillgänglighet</a></li>
+                    <li class="nav-item col-auto"><a class="nav-link footer__link" href="#">Personuppgifter</a></li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js" defer></script>
+</body>
+</html>

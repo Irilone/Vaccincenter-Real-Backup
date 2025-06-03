@@ -1,0 +1,5 @@
+// layout/_index.scss
+// Forward all layout components
+
+@forward 'container';
+@forward 'grid';

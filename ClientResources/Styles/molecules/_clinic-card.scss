@@ -1,0 +1,183 @@
+// _clinic-card.scss
+// Styles for clinic cards, targeting the 'original-style' blueprint.
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../atoms/buttons'; // For .button and .button--primary
+
+.clinic-card {
+  display: flex;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius, 8px); // Default if not set
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.08)); // Default if not set
+  margin-bottom: var(--spacing-6, 32px); // Default if not set
+  overflow: hidden;
+  transition: box-shadow var(--transition-speed, 0.2s) ease-in-out;
+
+  &:hover {
+    box-shadow: var(--shadow-lg, 0 8px 20px rgba(0, 0, 0, 0.12)); // Default if not set
+  }
+
+  &__image-wrapper {
+    flex: 0 0 260px; // Adjust width as per visual target
+    // min-height: 280px; // Ensure a minimum height if content is short
+    background-color: var(--color-gray-200); // Placeholder bg
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__content-wrapper {
+    flex: 1;
+    display: flex;
+    padding: var(--spacing-5, 24px); // Default if not set
+    gap: var(--spacing-5, 24px);     // Default if not set
+  }
+
+  &__main-info {
+    flex: 2; // Takes approx 2/3 of the content-wrapper width
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-size: 1.6rem; // Adjust as per visual target
+    font-weight: 600; // Bolder for clinic name
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-2, 8px); // Default if not set
+    line-height: 1.3;
+  }
+
+  &__address {
+    font-size: 0.95rem; // Adjust as per visual target
+    color: var(--color-gray-800, #444); // Default if not set
+    line-height: 1.5;
+    margin-bottom: var(--spacing-4, 16px); // Default if not set
+  }
+
+  &__contact-details {
+    margin-bottom: var(--spacing-3, 12px); // Default if not set
+    font-size: 0.95rem; // Adjust as per visual target
+    line-height: 1.6;
+
+    p {
+      margin-bottom: var(--spacing-1, 4px); // Default if not set
+    }
+
+    a {
+      color: var(--color-secondary);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__links {
+    margin-bottom: var(--spacing-4, 16px); // Default if not set
+  }
+
+  &__map-link {
+    font-size: 0.9rem; // Adjust as per visual target
+    color: var(--color-secondary);
+    text-decoration: underline;
+    font-weight: 500;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__actions {
+    margin-top: auto; // Pushes button to the bottom
+    padding-top: var(--spacing-4, 16px); // Space above button
+
+    .button {
+      // Inherits from _buttons.scss
+      // Ensure it takes full width if needed, or specific styling from screenshot
+      // e.g., width: 100%; 
+    }
+  }
+
+  &__hours-info {
+    flex: 1; // Takes approx 1/3 of the content-wrapper width
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-gray-100, #f5f5f5); // Default if not set
+    padding: var(--spacing-4, 16px); // Default if not set
+    border-radius: var(--border-radius-sm, 4px); // Default if not set
+    font-size: 0.875rem; // Base for this section
+  }
+
+  &__hours-title {
+    font-size: 1.1rem; // Adjust as per visual target
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-3, 12px); // Default if not set
+  }
+
+  &__hours-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-3, 12px) 0; // Default if not set
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--spacing-1, 4px); // Default if not set
+      color: var(--color-gray-800, #444); // Default if not set
+
+      .day {
+        font-weight: 500;
+        margin-right: var(--spacing-2, 8px); // Default if not set
+      }
+      .time {
+        // Styles for time if any
+      }
+    }
+  }
+  
+  &__hours-closed {
+    // Specific style for closed days if different, e.g., color
+    color: var(--color-gray-600, #888); // Default if not set
+  }
+
+  &__holidays-link {
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+    text-decoration: underline;
+    font-weight: 500;
+    margin-top: auto; // Pushes to bottom if hours list is short
+    padding-top: var(--spacing-2, 8px); // Space above
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  // Responsive adjustments for clinic cards if needed
+  @include respond-to('md') {
+    // Example: stack image and content-wrapper vertically on smaller screens
+    // flex-direction: column;
+
+    // &__image-wrapper {
+    //   flex-basis: auto; // Reset basis
+    //   width: 100%;
+    //   max-height: 200px; // Adjust for stacked view
+    // }
+
+    // &__content-wrapper {
+    //   flex-direction: column; // Stack main-info and hours-info
+    //   gap: var(--spacing-4);
+    // }
+
+    // &__main-info, &__hours-info {
+    //   flex-basis: auto; // Reset basis
+    //   width: 100%;
+    // }
+  }
+}

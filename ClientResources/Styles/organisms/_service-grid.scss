@@ -1,0 +1,71 @@
+// _service-grid.scss
+// Service grid collection component following BEM methodology
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.service-grid {
+  display: flex; // From local-styles
+  flex-wrap: wrap; // From local-styles
+  justify-content: center; // From local-styles
+  gap: 40px; // From local-styles (consider var(--spacing-x) if appropriate)
+  margin: 60px auto; // From local-styles (consider var(--spacing-y) auto)
+  max-width: 1280px; // From local-styles
+  // border-radius and overflow are likely fine if items themselves have rounded corners/shadows
+
+  // Media queries from local-styles, adapted
+  @include respond-to('lg') { // Corresponds to max-width: 1200px in local-styles for service-item width adjustments
+    // .service-item specific width changes will be in _service-item.scss
+  }
+
+  @include respond-to('md') { // Corresponds to max-width: 992px in local-styles
+    gap: 30px; // From local-styles
+    // .service-item specific width changes will be in _service-item.scss
+  }
+
+  @include respond-to('sm') { // Corresponds to max-width: 768px in local-styles
+    gap: 15px; // From local-styles
+    // .service-item specific width changes will be in _service-item.scss
+  }
+
+  // Potentially for very small screens, from local-styles (max-width: 576px)
+  @media (max-width: 576px) {
+    justify-content: space-around; // From local-styles
+    // .service-item specific width changes will be in _service-item.scss
+  }
+  
+  // Element: Header section
+  &__header {
+    grid-column: 1 / -1; // Span all columns
+    text-align: center;
+    margin-bottom: var(--spacing-5);
+    
+    h2 {
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-3);
+    }
+    
+    p {
+      color: var(--color-gray-700);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  // Element: Footer with CTA
+  &__footer {
+    grid-column: 1 / -1; // Span all columns
+    text-align: center;
+    margin-top: var(--spacing-5);
+    
+    .button {
+      margin-top: var(--spacing-4);
+    }
+  }
+}
+
+// Container variation - for when service grid needs container constraints
+.container .service-grid {
+  max-width: 100%;
+}

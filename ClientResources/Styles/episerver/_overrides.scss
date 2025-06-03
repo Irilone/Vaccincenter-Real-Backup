@@ -1,0 +1,198 @@
+// _overrides.scss
+// Episerver-specific overrides for CMS integration
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+@use '../atoms/buttons';
+
+/* 
+ * As specified in the Vaccincenter workspace rules:
+ * - "Follow CMS placeholders & content areas; no direct <body> edits"
+ * - "Wrap widgets in 'epi-' prefixed containers"
+ * - "Only override Episerver defaults via --variable maps"
+ */
+
+// Episerver content area styling
+.epi-content-area {
+  margin-bottom: var(--spacing-6);
+  
+  // Remove unnecessary margins when nested
+  .epi-content-area {
+    margin-bottom: 0;
+  }
+}
+
+// Episerver widget container
+.epi-widget {
+  position: relative;
+  
+  // Editing mode highlight
+  &.epi-editing {
+    outline: 2px dashed var(--color-secondary);
+    outline-offset: 2px;
+    position: relative;
+    
+    &::before {
+      content: attr(data-epi-widget-name);
+      position: absolute;
+      top: -20px;
+      left: 0;
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+      padding: 2px 6px;
+      font-size: 12px;
+      border-radius: 3px;
+      z-index: 100;
+    }
+  }
+}
+
+// Episerver form elements override
+.epi-form {
+  input, 
+  select, 
+  textarea {
+    appearance: none;
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-2) var(--spacing-3);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--input-focus);
+      box-shadow: 0 0 0 2px rgb(0 173 208 / 25%);
+    }
+  }
+  
+  button {
+    @extend .button !optional;
+    @extend .button--primary !optional;
+  }
+}
+
+// Navigation overrides for Episerver
+.navigation {
+  &__logo {
+    display: flex;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    
+    &.flex-start {
+      justify-content: center;
+    }
+  }
+  
+  &__left--menu, 
+  &__item--has-mega-menu .navigation__item-category,
+  .header-navigation-menu {
+    order: 2;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 60px;
+  }
+  
+  &__item {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+    padding: 0 var(--spacing-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+// Footer overrides for Episerver
+footer.footer {
+  background-color: var(--footer-background);
+  color: var(--footer-text);
+  padding: var(--spacing-6) 0;
+  
+  a {
+    color: var(--footer-link);
+    transition: color var(--transition-speed) var(--transition-easing);
+    
+    &:hover {
+      color: var(--footer-link-hover);
+    }
+  }
+  
+  .footer__link-nav ul#footer__links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}
+
+// Map embed system
+.map-embed-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--map-max-width);
+  border-radius: var(--map-radius);
+  overflow: hidden;
+  box-shadow: var(--map-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: var(--map-aspect-ratio);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgb(1 35 99 / 16%);
+  }
+  
+  .map-embed-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  
+  &::before {
+    content: "Laddar karta...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-gray-600);
+    font-size: 14px;
+    z-index: -1;
+  }
+  
+  @media (width <= 576px) {
+    --map-max-width: 100%;
+
+    margin: 0;
+  }
+  
+  @media print {
+    box-shadow: none;
+    border: 1px solid var(--color-gray-300);
+    page-break-inside: avoid;
+  }
+}
+
+// Button container from original code
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: -6px;
+  margin-left: 20%;
+  margin-right: 20%;
+}

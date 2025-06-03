@@ -1,0 +1,1662 @@
+< !DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CodeCraft Canvas</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/material-darker.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/neat.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/lint/lint.min.css"><style> :root {
+    --bg-light: #f8f9fa;
+    --text-light: #212529;
+    --border-light: #dee2e6;
+    --accent-light: #007aff;
+    --sidebar-bg-light: #ffffff;
+    --header-bg-light: #f1f3f5;
+
+    --bg-dark: #1c1c1e;
+    --text-dark: #f2f2f7;
+    --border-dark: #3a3a3c;
+    --accent-dark: #0a84ff;
+    --sidebar-bg-dark: #2c2c2e;
+    --header-bg-dark: #303033;
+
+    --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --border-radius: 0.5rem;
+    /* Softer rounded corners */
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.app-header {
+    background-color: var(--header-bg-light);
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    flex-wrap: wrap;
+}
+
+body.dark-mode .app-header {
+    background-color: var(--header-bg-dark);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.app-header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+.app-header .header-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.app-header .header-buttons .btn {
+    margin-left: 0.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+
+.main-container {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 280px;
+    min-width: 220px;
+    background-color: var(--sidebar-bg-light);
+    border-right: 1px solid var(--border-light);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    overflow-y: auto;
+}
+
+body.dark-mode .sidebar {
+    background-color: var(--sidebar-bg-dark);
+    border-right: 1px solid var(--border-dark);
+}
+
+.sidebar h5 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #868e96;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+body.dark-mode .sidebar h5 {
+    color: #8e8e93;
+}
+
+.file-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.file-list li {
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.file-list li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .file-list li:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.file-list li.active {
+    background-color: var(--accent-light);
+    color: white;
+}
+
+body.dark-mode .file-list li.active {
+    background-color: var(--accent-dark);
+    color: var(--text-dark);
+}
+
+.file-list .delete-file-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 0.2rem;
+    opacity: 0.7;
+}
+
+.file-list .delete-file-btn:hover {
+    opacity: 1;
+}
+
+body.dark-mode .file-list .delete-file-btn {
+    color: #ff453a;
+}
+
+
+.editor-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#editor-container {
+    flex-grow: 1;
+    height: 100%;
+    overflow: auto;
+}
+
+.cm-editor {
+    height: 100%;
+    font-size: 15px;
+    border: none;
+}
+
+body.dark-mode .cm-editor {}
+
+.cm-gutters {
+    background-color: var(--sidebar-bg-light) !important;
+    border-right: 1px solid var(--border-light) !important;
+}
+
+body.dark-mode .cm-gutters {
+    background-color: var(--sidebar-bg-dark) !important;
+    border-right: 1px solid var(--border-dark) !important;
+}
+
+
+.preview-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border-light);
+    transition: border-color 0.3s ease;
+    position: relative;
+}
+
+body.dark-mode .preview-area {
+    border-left: 1px solid var(--border-dark);
+}
+
+.preview-controls {
+    padding: 0.5rem 1rem;
+    background-color: var(--header-bg-light);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-mode .preview-controls {
+    background-color: var(--header-bg-dark);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+#preview-iframe,
+#python-console {
+    flex-grow: 1;
+    border: none;
+    width: 100%;
+    background-color: #fff;
+}
+
+body.dark-mode #preview-iframe {}
+
+#python-console {
+    padding: 1rem;
+    font-family: "Menlo", "Monaco", monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-y: auto;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+body.dark-mode #python-console {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+#python-console .error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+body.dark-mode #python-console .error {
+    color: #ff453a;
+}
+
+#python-console .explain-error-btn {
+    margin-left: 10px;
+    font-size: 0.8em;
+}
+
+
+.resize-handle {
+    width: 8px;
+    background-color: transparent;
+    cursor: col-resize;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -4px;
+    z-index: 10;
+}
+
+.btn-apple {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btn-apple-primary {
+    background-color: var(--accent-light);
+    color: white;
+    border-color: var(--accent-light);
+}
+
+body.dark-mode .btn-apple-primary {
+    background-color: var(--accent-dark);
+    color: var(--text-dark);
+    border-color: var(--accent-dark);
+}
+
+.btn-apple-primary:hover {
+    opacity: 0.85;
+    color: white;
+}
+
+body.dark-mode .btn-apple-primary:hover {
+    color: var(--text-dark);
+}
+
+.btn-apple-secondary {
+    background-color: #e9ecef;
+    color: var(--text-light);
+    border-color: #ced4da;
+}
+
+body.dark-mode .btn-apple-secondary {
+    background-color: #3a3a3c;
+    color: var(--text-dark);
+    border-color: #4a4a4c;
+}
+
+.btn-apple-secondary:hover {
+    background-color: #d3d9df;
+}
+
+body.dark-mode .btn-apple-secondary:hover {
+    background-color: #4a4a4c;
+}
+
+.btn-apple-ai {
+    /* Style for AI buttons */
+    background-color: #c3e6cb;
+    /* Light green */
+    color: #155724;
+    /* Dark green text */
+    border-color: #b1dfbb;
+}
+
+body.dark-mode .btn-apple-ai {
+    background-color: #28a745;
+    /* Brighter green for dark mode */
+    color: white;
+    border-color: #1e7e34;
+}
+
+.btn-apple-ai:hover {
+    background-color: #b1dfbb;
+    color: #155724;
+}
+
+body.dark-mode .btn-apple-ai:hover {
+    background-color: #218838;
+    color: white;
+}
+
+
+.modal-content {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .modal-content {
+    background-color: var(--sidebar-bg-dark);
+    color: var(--text-dark);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .modal-header {
+    border-bottom-color: var(--border-dark);
+}
+
+body.dark-mode .modal-footer {
+    border-top-color: var(--border-dark);
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+#aiExplainModalBody pre,
+#generateCodePromptModalBody pre {
+    /* Style for code blocks in AI explanation */
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+body.dark-mode #aiExplainModalBody pre,
+body.dark-mode #generateCodePromptModalBody pre {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.help-icon {
+    cursor: pointer;
+    color: var(--accent-light);
+    margin-left: 8px;
+    font-size: 0.9em;
+}
+
+body.dark-mode .help-icon {
+    color: var(--accent-dark);
+}
+
+.gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}
+
+body.dark-mode .gutter {
+    background-color: #333;
+}
+
+#loadingIndicator {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-light);
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    /* High z-index */
+    display: none;
+    /* Hidden by default */
+}
+
+body.dark-mode #loadingIndicator {
+    background-color: var(--accent-dark);
+    color: var(--text-dark);
+}
+
+
+.d-none {
+    display: none !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mt-auto {
+    margin-top: auto !important;
+}
+
+</style></head><body><header class="app-header"><h1>CodeCraft Canvas</h1><div class="header-buttons"><button id="generateCodeBtn" class="btn btn-apple btn-apple-ai">Generate Code ✨</button><button id="explainCodeBtn" class="btn btn-apple btn-apple-ai">Explain Code ✨</button><button id="formatCodeBtn" class="btn btn-apple btn-apple-secondary">Format Code</button><button id="toggleDarkModeBtn" class="btn btn-apple btn-apple-secondary">Toggle Dark Mode</button></div></header><div class="main-container" id="mainSplit"><aside class="sidebar" id="sidebarSplit"><h5>Files</h5><ul id="fileList" class="file-list mb-3"></ul><div class="btn-group w-100 mb-2"><button id="newFileBtn" class="btn btn-apple btn-apple-secondary w-100">New File</button></div><div class="btn-group w-100"><button id="saveFilesBtn" class="btn btn-apple btn-apple-primary w-50 me-1">Save All</button><button id="loadFilesBtn" class="btn btn-apple btn-apple-secondary w-50 ms-1">Load</button></div><h5 class="mt-4">Settings</h5><div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="autoPreviewSwitch" checked><label class="form-check-label" for="autoPreviewSwitch">Auto-run HTML/CSS/JS</label></div><div class="form-check form-switch mt-2"><input class="form-check-input" type="checkbox" role="switch" id="togglePreviewPane" checked><label class="form-check-label" for="togglePreviewPane">Show Preview/Console</label></div><div class="mt-auto pt-3"><small class="d-block text-muted"><a href="#" data-bs-toggle="modal" data-bs-target="#helpModal" data-help-topic="general">General Help</a></small><small class="d-block text-muted"><a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Bootstrap Docs</a></small></div></aside><div class="editor-area" id="editorSplit"><div id="editor-container"></div></div><div class="preview-area" id="previewSplit"><div class="preview-controls"><span id="currentLanguageDisplay" class="fw-bold">HTML</span><button id="runCodeBtn" class="btn btn-apple btn-apple-primary">Run</button></div><iframe id="preview-iframe"></iframe><div id="python-console" class="d-none"></div></div></div><div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="helpModalLabel">Help</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body" id="helpModalBody"></div><div class="modal-footer"><button type="button" class="btn btn-apple btn-apple-secondary" data-bs-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="aiExplainModal" tabindex="-1" aria-labelledby="aiExplainModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="aiExplainModalLabel">✨ AI Interaction</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body" id="aiExplainModalBody"></div><div class="modal-footer" id="aiExplainModalFooter"><button type="button" class="btn btn-apple btn-apple-secondary" data-bs-dismiss="modal">Close</button></div></div></div></div><div class="modal fade" id="generateCodePromptModal" tabindex="-1" aria-labelledby="generateCodePromptModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="generateCodePromptModalLabel">✨ Generate Code with AI</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><div class="mb-3"><label for="codeInputPrompt" class="form-label">Describe the code you want to generate:</label><textarea class="form-control" id="codeInputPrompt" rows="4" placeholder="e.g., An HTML form with name and email fields. or A Python function to calculate the sum of a list."></textarea></div><div class="mb-3"><label for="codeGenLanguageSelect" class="form-label">Target Language:</label><select class="form-select" id="codeGenLanguageSelect"><option value="html">HTML</option><option value="css">CSS</option><option value="javascript">JavaScript</option><option value="python">Python</option></select></div></div><div class="modal-footer"><button type="button" class="btn btn-apple btn-apple-secondary" data-bs-dismiss="modal">Cancel</button><button type="button" class="btn btn-apple btn-apple-ai" id="submitGenerateCodePromptBtn">Generate Code</button></div></div></div></div><div id="loadingIndicator">Requesting AI insight... ✨</div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script><script type="importmap"> {
+    "imports": {
+        "codemirror": "https://esm.sh/codemirror@6.0.1",
+            "@codemirror/state": "https://esm.sh/@codemirror/state@6.4.1",
+            "@codemirror/view": "https://esm.sh/@codemirror/view@6.26.3",
+            "@codemirror/commands": "https://esm.sh/@codemirror/commands@6.5.0",
+            "@codemirror/language": "https://esm.sh/@codemirror/language@6.10.1",
+            "@codemirror/autocomplete": "https://esm.sh/@codemirror/autocomplete@6.15.0",
+            "@codemirror/lint": "https://esm.sh/@codemirror/lint@6.7.0",
+            "@codemirror/lang-html": "https://esm.sh/@codemirror/lang-html@6.4.9",
+            "@codemirror/lang-css": "https://esm.sh/@codemirror/lang-css@6.2.1",
+            "@codemirror/lang-javascript": "https://esm.sh/@codemirror/lang-javascript@6.2.2",
+            "@codemirror/lang-python": "https://esm.sh/@codemirror/lang-python@6.1.6",
+            "prettier": "https://esm.sh/prettier@3.2.5/standalone.js",
+            "prettier/parser-html": "https://esm.sh/prettier@3.2.5/plugins/html.js",
+            "prettier/parser-babel": "https://esm.sh/prettier@3.2.5/plugins/babel.js",
+            "prettier/parser-postcss": "https://esm.sh/prettier@3.2.5/plugins/postcss.js",
+            "marked": "https://esm.sh/marked@12.0.2",
+            "@codemirror/theme-material-darker": "https://esm.sh/@codemirror/theme-material-darker",
+            "@codemirror/theme-one-light": "https://esm.sh/@codemirror/theme-one-light"
+    }
+}
+
+</script><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt.min.js"></script><script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt-stdlib.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.0/split.min.js"></script><script type="module">import {
+    EditorState
+}
+
+from "@codemirror/state";
+
+import {
+    EditorView,
+    keymap,
+    lineNumbers,
+    highlightActiveLineGutter,
+    highlightSpecialChars,
+    drawSelection,
+    dropCursor,
+    rectangularSelection,
+    crosshairCursor,
+    highlightActiveLine
+}
+
+from "@codemirror/view";
+
+import {
+    defaultKeymap,
+    history,
+    indentWithTab,
+    historyKeymap,
+    indentLess,
+    indentMore
+}
+
+from "@codemirror/commands";
+
+import {
+    autocompletion,
+    completionKeymap,
+    closeBrackets,
+    closeBracketsKeymap
+}
+
+from "@codemirror/autocomplete";
+
+import {
+    lintKeymap,
+    linter,
+    lintGutter
+}
+
+from "@codemirror/lint";
+
+import {
+    bracketMatching,
+    foldGutter,
+    indentOnInput,
+    syntaxHighlighting,
+    defaultHighlightStyle,
+    foldKeymap,
+    LanguageSupport,
+    StreamLanguage
+}
+
+from "@codemirror/language";
+
+import {
+    html,
+    htmlCompletionSource
+}
+
+from "@codemirror/lang-html";
+
+import {
+    css,
+    cssCompletionSource
+}
+
+from "@codemirror/lang-css";
+
+import {
+    javascript,
+    javascriptLanguage
+}
+
+from "@codemirror/lang-javascript";
+
+import {
+    python
+}
+
+from "@codemirror/lang-python";
+
+import prettier from "prettier";
+import parserHtml from "prettier/parser-html";
+import parserBabel from "prettier/parser-babel";
+import parserPostcss from "prettier/parser-postcss";
+
+import {
+    marked
+}
+
+from 'marked'; // For rendering Markdown from Gemini
+
+// Import the themes correctly
+import {
+    materialDarker
+}
+
+from '@codemirror/theme-material-darker';
+
+import {
+    oneLight
+}
+
+from '@codemirror/theme-one-light';
+
+
+let editorView;
+let files=[];
+let activeFile=null;
+
+const defaultFiles=[ {
+    name: "index.html", content: `< !DOCTYPE html>\n<html lang="en" >\n<head>\n <meta charset="UTF-8" >\n <meta name="viewport" content="width=device-width, initial-scale=1.0" >\n <title>My Page</title>\n <link rel="stylesheet" href="style.css" >\n \n <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" >\n</head>\n<body>\n <h1>Hello, CodeCraft !</h1>\n <p>Edit this content.</p>\n \n <button class="btn btn-primary" onclick="greet()" >Click Me</button>\n\n <script src="script.js" ></script>\n \n <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" ></script>\n</body>\n</html>`, language: "html"
+}
+
+,
+{
+
+name: "style.css",
+content: `body {
+    \n font-family: sans-serif;
+    \n margin: 20px;
+    \n background-color: #f0f0f0;
+    \n
+}
+
+\n\nh1 {
+    \n color: navy;
+    \n
+}
+
+\n\n
+
+/* Example Bootstrap class usage */
+\n.custom-alert {
+    \n padding: 15px;
+    \n background-color: #d1ecf1;
+    \n border-color: #bee5eb;
+    \n color: #0c5460;
+    \n border-radius: .25rem;
+    \n
+}
+
+`,
+language: "css"
+}
+
+,
+{
+name: "script.js", content: `console.log("Script loaded!");
+
+\n\nfunction greet() {
+    \n // Using a custom modal instead of alert\n    showCustomAlert("Hello from JavaScript!");\n}\n\n// Example: Add a new element\ndocument.addEventListener('DOMContentLoaded', () => {\n    const p = document.createElement('p');\n    p.textContent = 'This paragraph was added by JavaScript.';\n    document.body.appendChild(p);\n});\n\n// Custom alert function to avoid native alert()\nfunction showCustomAlert(message) {\n    const modalId = 'customAlertModal';\n    let modalElement = document.getElementById(modalId);\n    if (!modalElement) {\n        modalElement = document.createElement('div');\n        // Using string concatenation to avoid issues with nested template literals in the outer template literal\n        modalElement.innerHTML = \n            '<div class="modal fade" id="' + modalId + '" tabindex="-1" aria-labelledby="customAlertLabel" aria-hidden="true">' +\n                '<div class="modal-dialog modal-dialog-centered">' +\n                    '<div class="modal-content">' +\n                        '<div class="modal-header">' +\n                            '<h5 class="modal-title" id="customAlertLabel">Notification</h5>' +\n                            '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' +\n                        '</div>' +\n                        '<div class="modal-body">' +\n                            '<p id="customAlertMessage"></p>' +\n                        '</div>' +\n                        '<div class="modal-footer">' +\n                            '<button type="button" class="btn btn-apple btn-apple-secondary" data-bs-dismiss="modal">OK</button>' +\n                        '</div>' +\n                    '</div>' +\n                '</div>' +\n            '</div>';\n        document.body.appendChild(modalElement);\n    }\n    document.getElementById('customAlertMessage').textContent = message;\n    const modal = new bootstrap.Modal(document.getElementById(modalId));
+    modal.show();
+}
+
+\n`,
+language: "javascript"
+}
+
+,
+{
+name: "main.py",
+content: `print("Hello from Python!")\n\nname=input("What's your name? ") # input() will use browser prompt\nprint(f"Nice to meet you, {name}!")\n\nfor i in range(5):\n print(f"Number: {i}")\n\n# Example of a function that might cause an error\ndef risky_division(a, b): \n return a / b\n\n# print(risky_division(10, 0)) # Uncomment to test error explanation\n`, language: "python"
+}
+
+];
+
+const fileListEl=document.getElementById("fileList");
+const newFileBtn=document.getElementById("newFileBtn");
+const saveFilesBtn=document.getElementById("saveFilesBtn");
+const loadFilesBtn=document.getElementById("loadFilesBtn");
+const formatCodeBtn=document.getElementById("formatCodeBtn");
+const explainCodeBtn=document.getElementById("explainCodeBtn");
+const generateCodeBtn=document.getElementById("generateCodeBtn");
+const toggleDarkModeBtn=document.getElementById("toggleDarkModeBtn");
+const runCodeBtn=document.getElementById("runCodeBtn");
+const previewIframe=document.getElementById("preview-iframe");
+const pythonConsole=document.getElementById("python-console");
+const currentLanguageDisplay=document.getElementById("currentLanguageDisplay");
+const autoPreviewSwitch=document.getElementById("autoPreviewSwitch");
+const togglePreviewPaneSwitch=document.getElementById("togglePreviewPane");
+const editorContainer=document.getElementById('editor-container');
+const previewArea=document.getElementById('previewSplit');
+const loadingIndicator=document.getElementById('loadingIndicator');
+
+const aiExplainModalEl=document.getElementById('aiExplainModal');
+const aiExplainModal=new bootstrap.Modal(aiExplainModalEl);
+const aiExplainModalLabel=document.getElementById('aiExplainModalLabel');
+const aiExplainModalBody=document.getElementById('aiExplainModalBody');
+const aiExplainModalFooter=document.getElementById('aiExplainModalFooter');
+
+const generateCodePromptModalEl=document.getElementById('generateCodePromptModal');
+const generateCodePromptModal=new bootstrap.Modal(generateCodePromptModalEl);
+const codeInputPromptEl=document.getElementById('codeInputPrompt');
+const codeGenLanguageSelectEl=document.getElementById('codeGenLanguageSelect');
+const submitGenerateCodePromptBtn=document.getElementById('submitGenerateCodePromptBtn');
+
+
+// --- Gemini API Helper ---
+const GEMINI_API_KEY=""; // Per instructions, leave empty.
+const GEMINI_API_URL=`https: //generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+async function callGeminiApi(promptText) {
+    showLoadingIndicator(true);
+
+    let chatHistory=[ {
+
+        role: "user",
+        parts: [ {
+            text: promptText
+        }
+
+        ]
+    }
+
+    ];
+
+    const payload= {
+        contents: chatHistory
+    }
+
+    ;
+
+    try {
+        const response=await fetch(GEMINI_API_URL, {
+
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+
+            ,
+            body: JSON.stringify(payload)
+        });
+
+    if ( !response.ok) {
+        const errorData=await response.json();
+        console.error("Gemini API Error:", errorData);
+
+        throw new Error(`API request failed with status $ {
+                response.status
+            }
+
+            : $ {
+                errorData?.error?.message || 'Unknown error'
+            }
+
+            `);
+    }
+
+    const result=await response.json();
+
+    if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts && result.candidates[0].content.parts.length > 0) {
+        return result.candidates[0].content.parts[0].text;
+    }
+
+    else {
+        console.error("Unexpected Gemini API response structure:", result);
+        throw new Error("Failed to get a valid response from the AI.");
+    }
+}
+
+catch (error) {
+    console.error("Error calling Gemini API:", error);
+
+    showCustomAlert(`Error communicating with AI: $ {
+            error.message
+        }
+
+        `);
+    return null;
+}
+
+finally {
+    showLoadingIndicator(false);
+}
+}
+
+function showLoadingIndicator(show) {
+    loadingIndicator.style.display=show ? 'block': 'none';
+}
+
+function displayAiInteractionResult(title, markdownText, interactionType="explanation") {
+    aiExplainModalLabel.textContent=title;
+
+    if (markdownText) {
+        aiExplainModalBody.innerHTML=marked.parse(markdownText);
+    }
+
+    else {
+        aiExplainModalBody.innerHTML="<p>Sorry, no content could be generated/explained at this time.</p>";
+    }
+
+    // Clear previous dynamic buttons
+    aiExplainModalFooter.innerHTML='<button type="button" class="btn btn-apple btn-apple-secondary" data-bs-dismiss="modal">Close</button>';
+
+    if (interactionType==="codeGeneration" && markdownText) {
+        const insertBtn=document.createElement('button');
+        insertBtn.type='button';
+        insertBtn.classList.add('btn', 'btn-apple', 'btn-apple-ai');
+        insertBtn.textContent='Insert into Editor';
+
+        insertBtn.onclick=()=> {
+            if (editorView) {
+                // Extract code from markdown (assuming it's in a ``` block)
+                const codeMatch=markdownText.match(/```(?:\w*\n)?([\s\S]*?)```/);
+                const codeToInsert=codeMatch ? codeMatch[1].trim(): markdownText.trim(); // Fallback to full text
+
+                const currentSelection=editorView.state.selection.main;
+
+                editorView.dispatch({
+                    changes: {
+                        from: currentSelection.from, to: currentSelection.to, insert: codeToInsert
+                    }
+                });
+        }
+
+        aiExplainModal.hide();
+    }
+
+    ;
+    aiExplainModalFooter.prepend(insertBtn); // Add as first button
+}
+
+aiExplainModal.show();
+}
+
+// --- Custom Alert Function (replaces native alert) ---
+function showCustomAlert(message, title="Notification") {
+    const modalId='globalCustomAlertModal';
+    let modalElement=document.getElementById(modalId);
+
+    if ( !modalElement) {
+        modalElement=document.createElement('div');
+
+        modalElement.innerHTML=` <div class="modal fade" id="${modalId}" tabindex="-1" aria-labelledby="${modalId}Label" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="${modalId}Label">$ {
+            title
+        }
+
+        </h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p id="${modalId}Message"></p></div><div class="modal-footer"><button type="button" class="btn btn-apple btn-apple-secondary" data-bs-dismiss="modal">OK</button></div></div></div></div>`;
+        document.body.appendChild(modalElement);
+
+        // Apply dark mode styles if dark mode is active when modal is created
+        if (document.body.classList.contains('dark-mode')) {
+            const modalContent=modalElement.querySelector('.modal-content');
+
+            if (modalContent) {
+                modalContent.style.backgroundColor='var(--sidebar-bg-dark)';
+                modalContent.style.color='var(--text-dark)';
+                const modalHeader=modalElement.querySelector('.modal-header');
+                if(modalHeader) modalHeader.style.borderBottomColor='var(--border-dark)';
+                const modalFooter=modalElement.querySelector('.modal-footer');
+                if(modalFooter) modalFooter.style.borderTopColor='var(--border-dark)';
+                const btnClose=modalElement.querySelector('.btn-close');
+                if(btnClose) btnClose.style.filter='invert(1) grayscale(100%) brightness(200%)';
+            }
+        }
+    }
+
+    else {
+
+        // Update dynamic content if modal already exists
+        document.getElementById(`$ {
+                modalId
+            }
+
+            Label`).textContent=title;
+
+        document.getElementById(`$ {
+                modalId
+            }
+
+            Message`).textContent=message;
+    }
+
+    const bsModal=bootstrap.Modal.getOrCreateInstance(document.getElementById(modalId));
+    bsModal.show();
+}
+
+
+// --- CodeMirror Setup ---
+const commonExtensions=(langSupport)=>[ lineNumbers(),
+highlightActiveLineGutter(),
+highlightSpecialChars(),
+history(),
+foldGutter({
+    markerDOM: (open)=> {
+        let icon=document.createElement("span");
+        icon.className=open ? "cm-foldMarker-open" : "cm-foldMarker-closed";
+        icon.textContent=open ? "▾" : "▸";
+        return icon;
+    }
+
+}),
+drawSelection(),
+dropCursor(),
+EditorState.allowMultipleSelections.of(true),
+indentOnInput(),
+syntaxHighlighting(defaultHighlightStyle, {
+    fallback: true
+}),
+bracketMatching(),
+closeBrackets(),
+autocompletion(),
+rectangularSelection(),
+crosshairCursor(),
+highlightActiveLine(),
+keymap.of([ ...closeBracketsKeymap, ...defaultKeymap, ...historyKeymap, ...foldKeymap,
+    ...completionKeymap, indentWithTab]),
+lintGutter(),
+langSupport];
+
+function getLanguageSupport(language) {
+    switch (language) {
+        case "html": return html({
+
+            selfClosingTags: true,
+            matchClosingTags: true,
+            extraGlobalAttributes: {
+                class: null, id: null, style: null, 'data-bs-toggle': null, 'data-bs-target': null
+            }
+
+            ,
+            extraTags: {
+                div: {
+                    attrs: {
+                        class: getBootstrapClasses()
+                    }
+                }
+
+                ,
+                button: {
+                    attrs: {
+                        class: getBootstrapClasses()
+                    }
+                }
+
+                ,
+            }
+
+            ,
+            autoCompletion: htmlCompletionSource
+        });
+
+    case "css": return css({
+        autoCompletion: cssCompletionSource
+    });
+
+case "javascript": return javascript({
+    jsx: false, typescript: false
+});
+case "python": return python();
+default: return [];
+}
+}
+
+function getBootstrapClasses() {
+    return ["container",
+    "row",
+    "col",
+    "btn",
+    "btn-primary",
+    "btn-secondary",
+    "alert",
+    "alert-info",
+    "card",
+    "mt-1",
+    "mt-2",
+    "mt-3",
+    "p-1",
+    "p-2",
+    "p-3",
+    "d-flex",
+    "justify-content-center",
+    "form-control",
+    "form-label",
+    "table",
+    "table-striped"];
+}
+
+async function createEditor(content, language) {
+    if (editorView) {
+        editorView.destroy();
+    }
+
+    const langSupport=getLanguageSupport(language);
+    const isDarkMode=document.body.classList.contains('dark-mode');
+
+    // Select the theme based on dark mode
+    const editorSyntaxTheme=isDarkMode ? materialDarker : oneLight;
+
+    const state=EditorState.create({
+
+        doc: content,
+        extensions: [ ...commonExtensions(langSupport),
+        EditorView.theme({
+            "&": {
+                color: isDarkMode ? "var(--text-dark)" : "var(--text-light)",
+                backgroundColor: isDarkMode ? "var(--bg-dark)" : "var(--bg-light)",
+            }
+
+            ,
+            ".cm-content": {
+                caretColor: isDarkMode ? "var(--accent-dark)" : "var(--accent-light)"
+            }
+
+            ,
+            ".cm-gutters": {
+
+                backgroundColor: isDarkMode ? "var(--sidebar-bg-dark)" : "var(--sidebar-bg-light)",
+                color: isDarkMode ? "#888" : "#666",
+                borderRight: `1px solid $ {
+                    isDarkMode ? "var(--border-dark)" : "var(--border-light)"
+                }
+
+                `
+            }
+
+            ,
+            ".cm-activeLineGutter": {
+                backgroundColor: isDarkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"
+            }
+
+            ,
+        }),
+    editorSyntaxTheme,
+    EditorView.updateListener.of(update=> {
+            if (update.docChanged && activeFile) {
+                activeFile.content=editorView.state.doc.toString();
+
+                if (autoPreviewSwitch.checked && (activeFile.language==='html' || activeFile.language==='css' || activeFile.language==='javascript')) {
+                    throttledRunCode();
+                }
+            }
+        })]
+});
+
+editorView=new EditorView({
+    state, parent: editorContainer
+});
+}
+
+// --- File Management ---
+function renderFileList() {
+    fileListEl.innerHTML="";
+
+    files.forEach(file=> {
+            const li=document.createElement("li");
+            li.textContent=file.name;
+            li.dataset.filename=file.name;
+
+            if (activeFile && activeFile.name===file.name) {
+                li.classList.add("active");
+            }
+
+            const deleteBtn=document.createElement("button");
+            deleteBtn.innerHTML="&times;";
+            deleteBtn.classList.add("delete-file-btn");
+
+            deleteBtn.onclick=(e)=> {
+                e.stopPropagation();
+                deleteFile(file.name);
+            }
+
+            ;
+            li.appendChild(deleteBtn);
+
+            li.onclick=()=> switchFile(file.name);
+            fileListEl.appendChild(li);
+        });
+}
+
+function createFileInternal(name, content="", language="html") {
+    if (files.find(f=> f.name===name)) {
+        showCustomAlert("File with this name already exists!");
+        return null;
+    }
+
+    const newFile= {
+        name,
+        content,
+        language
+    }
+
+    ;
+    files.push(newFile);
+    return newFile;
+}
+
+newFileBtn.onclick=()=> {
+    const fileName=prompt("Enter file name (e.g., new.html, script.js, styles.css, app.py):");
+
+    if (fileName) {
+        let language="plaintext";
+        if (fileName.endsWith (".html")) language="html";
+        else if (fileName.endsWith (".css")) language="css";
+        else if (fileName.endsWith (".js")) language="javascript";
+        else if (fileName.endsWith (".py")) language="python";
+
+        const file=createFileInternal(fileName, ` // New ${language} file: ${fileName}\n`, language);
+
+            if (file) {
+                switchFile(fileName);
+                renderFileList();
+            }
+        }
+    }
+
+    ;
+
+    async function switchFile(fileName) {
+        const file=files.find(f=> f.name===fileName);
+
+        if (file) {
+            activeFile=file;
+            await createEditor(file.content, file.language);
+            currentLanguageDisplay.textContent=file.language.toUpperCase();
+            updateRunButtonVisibility(file.language);
+            renderFileList();
+
+            if (autoPreviewSwitch.checked && (file.language==='html' || file.language==='css' || file.language==='javascript')) {
+                runCode();
+            }
+        }
+    }
+
+    function deleteFile(fileName) {
+        const confirmModalId='confirmDeleteModal';
+        let modalElement=document.getElementById(confirmModalId);
+
+        if ( !modalElement) {
+            modalElement=document.createElement('div');
+
+            modalElement.innerHTML=` <div class="modal fade" id="${confirmModalId}" tabindex="-1" aria-labelledby="${confirmModalId}Label" aria-hidden="true" > <div class="modal-dialog modal-dialog-centered" > <div class="modal-content" > <div class="modal-header" > <h5 class="modal-title" id="${confirmModalId}Label" >Confirm Deletion</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button> </div> <div class="modal-body" > <p>Are you sure you want to delete <strong>$ {
+                fileName
+            }
+
+            </strong>?</p> </div> <div class="modal-footer" > <button type="button" class="btn btn-apple btn-apple-secondary" data-bs-dismiss="modal" >Cancel</button> <button type="button" class="btn btn-danger" id="${confirmModalId}ConfirmBtn" >Delete</button> </div> </div> </div> </div> `;
+            document.body.appendChild(modalElement);
+
+            // Apply dark mode styles if dark mode is active when modal is created
+            if (document.body.classList.contains('dark-mode')) {
+                const modalContent=modalElement.querySelector('.modal-content');
+
+                if (modalContent) {
+                    modalContent.style.backgroundColor='var(--sidebar-bg-dark)';
+                    modalContent.style.color='var(--text-dark)';
+                    const modalHeader=modalElement.querySelector('.modal-header');
+                    if(modalHeader) modalHeader.style.borderBottomColor='var(--border-dark)';
+                    const modalFooter=modalElement.querySelector('.modal-footer');
+                    if(modalFooter) modalFooter.style.borderTopColor='var(--border-dark)';
+                    const btnClose=modalElement.querySelector('.btn-close');
+                    if(btnClose) btnClose.style.filter='invert(1) grayscale(100%) brightness(200%)';
+                }
+            }
+        }
+
+        else {
+            modalElement.querySelector('.modal-body p').innerHTML=`Are you sure you want to delete <strong>$ {
+                fileName
+            }
+
+            </strong>?`;
+        }
+
+        const bsModal=bootstrap.Modal.getOrCreateInstance(document.getElementById(confirmModalId));
+
+        const confirmBtn=document.getElementById(`$ {
+                confirmModalId
+            }
+
+            ConfirmBtn`);
+
+        const confirmHandler=async ()=> {
+            bsModal.hide();
+            confirmBtn.removeEventListener('click', confirmHandler);
+
+            files=files.filter(f=> f.name !==fileName);
+
+            if (activeFile && activeFile.name===fileName) {
+                activeFile=null;
+
+                if (files.length > 0) {
+                    await switchFile(files[0].name);
+                }
+
+                else {
+                    if (editorView) editorView.destroy();
+                    editorContainer.innerHTML='<div class="p-3 text-muted">No file selected. Create or load a file.</div>';
+                    activeFile=null;
+                }
+            }
+
+            renderFileList();
+        }
+
+        ;
+
+        confirmBtn.addEventListener('click', confirmHandler, {
+            once: true
+        });
+    bsModal.show();
+}
+
+
+saveFilesBtn.onclick=()=> {
+    try {
+        localStorage.setItem("codecraft_canvas_files", JSON.stringify(files));
+        showCustomAlert("Files saved to browser's local storage!");
+    }
+
+    catch (e) {
+        console.error("Error saving files:", e);
+        showCustomAlert("Error saving files. Local storage might be full or disabled.");
+    }
+}
+
+;
+
+loadFilesBtn.onclick=async ()=> {
+    const savedFiles=localStorage.getItem("codecraft_canvas_files");
+
+    if (savedFiles) {
+        try {
+            files=JSON.parse(savedFiles);
+
+            if (files.length > 0) {
+                await switchFile(files[0].name);
+            }
+
+            else {
+                await loadDefaultFiles();
+            }
+
+            renderFileList();
+            showCustomAlert("Files loaded from local storage!");
+        }
+
+        catch (e) {
+            console.error("Error parsing saved files:", e);
+            showCustomAlert("Error loading files. Data might be corrupted.");
+            await loadDefaultFiles();
+        }
+    }
+
+    else {
+        showCustomAlert("No saved files found. Loading default project.");
+        await loadDefaultFiles();
+    }
+}
+
+;
+
+async function loadDefaultFiles() {
+    files=JSON.parse(JSON.stringify(defaultFiles));
+
+    if (files.length > 0) {
+        await switchFile(files[0].name);
+    }
+
+    renderFileList();
+}
+
+// --- Code Execution/Preview ---
+function updateRunButtonVisibility(language) {
+    runCodeBtn.classList.remove("d-none");
+
+    if (language==="html" || language==="css" || language==="javascript") {
+        runCodeBtn.textContent="Run HTML/CSS/JS";
+        previewIframe.classList.remove("d-none");
+        pythonConsole.classList.add("d-none");
+    }
+
+    else if (language==="python") {
+        runCodeBtn.textContent="Run Python";
+        previewIframe.classList.add("d-none");
+        pythonConsole.classList.remove("d-none");
+    }
+
+    else {
+        runCodeBtn.classList.add("d-none");
+    }
+}
+
+runCodeBtn.onclick=runCode;
+
+let runTimeout;
+
+function throttledRunCode() {
+    clearTimeout(runTimeout);
+    runTimeout=setTimeout(runCode, 500);
+}
+
+function runCode() {
+    if ( !activeFile) return;
+
+    const lang=activeFile.language;
+    updateRunButtonVisibility(lang);
+
+    if (lang==="html" || lang==="css" || lang==="javascript") {
+        const htmlFile=files.find(f=> f.name.endsWith (".html") && f.language==="html") || files.find(f=> f.language==="html");
+        const cssFiles=files.filter(f=> f.name.endsWith (".css") && f.language==="css");
+        const jsFiles=files.filter(f=> f.name.endsWith (".js") && f.language==="javascript");
+
+        if ( !htmlFile) {
+            previewIframe.srcdoc="<p>No HTML file found or active to preview.</p>";
+            return;
+        }
+
+        let htmlContent=htmlFile.content;
+        let cssLinks="";
+
+        cssFiles.forEach(cssFile=> {
+                cssLinks +=`<style>\n$ {
+                    cssFile.content
+                }
+
+                \n</style>\n`;
+            });
+
+        htmlContent=htmlContent.replace(/<\/head>/i, `$ {
+                cssLinks
+            }
+
+            </head>`);
+
+        let jsScripts="";
+
+        jsFiles.forEach(jsFile=> {
+                jsScripts +=`<script>\n$ {
+                    jsFile.content
+                }
+
+                \n</script>\n`;
+            });
+
+        htmlContent=htmlContent.replace(/<\/body>/i, `$ {
+                jsScripts
+            }
+
+            </body>`);
+
+        previewIframe.srcdoc=htmlContent;
+
+    }
+
+    else if (lang==="python") {
+        pythonConsole.innerHTML="";
+        const codeToRun=activeFile.content;
+
+        Sk.configure({
+            output: (text)=> {
+                const span=document.createElement('span');
+                span.textContent=text;
+                pythonConsole.appendChild(span);
+                pythonConsole.scrollTop=pythonConsole.scrollHeight;
+            }
+
+            ,
+            read: (x)=> {
+                if (Sk.builtinFiles===undefined || Sk.builtinFiles["files"][x]===undefined) throw new Error("File not found: '" + x + "'");
+                return Sk.builtinFiles["files"][x];
+            }
+
+            ,
+            inputfun: (promptText)=> {
+                return prompt(promptText || "Python input:");
+            }
+
+            ,
+            inputfunTakesPrompt: true,
+            __future__: Sk.python3
+        });
+
+    (Sk.TurtleGraphics || (Sk.TurtleGraphics= {})).target='python-console';
+
+    try {
+        Sk.misceval.asyncToPromise(()=> {
+                return Sk.importMainWithBody("<stdin>", false, codeToRun, true);
+
+            }).then(mod=> {
+                const successMsg=document.createElement('div');
+                successMsg.textContent="\n--- Execution Finished ---";
+                successMsg.style.color=document.body.classList.contains('dark-mode') ? "#28a745" : "green";
+                pythonConsole.appendChild(successMsg);
+
+            }).catch(err=> {
+                const errorMsgDiv=document.createElement('div');
+                errorMsgDiv.className="error";
+
+                const errorTextNode=document.createTextNode("\n--- Error --- \n" + err.toString());
+                errorMsgDiv.appendChild(errorTextNode);
+
+                const explainBtn=document.createElement('button');
+                explainBtn.textContent="Explain Error ✨";
+                explainBtn.classList.add('btn', 'btn-sm', 'btn-apple-ai', 'explain-error-btn');
+
+                explainBtn.onclick=async ()=> {
+                    const promptText=`Explain the following Python error:\n\nError message:\n\`\`\`\n$ {
+                        err.toString()
+                    }
+
+                    \n\`\`\`\n\nIn the context of this Python code:\n\`\`\`python\n$ {
+                        codeToRun
+                    }
+
+                    \n\`\`\`\n\nPlease provide a clear explanation suitable for a novice to intermediate programmer, and suggest possible causes or fixes.`;
+                    const explanation=await callGeminiApi(promptText);
+                    displayAiInteractionResult("✨ AI Error Explanation", explanation, "explanation");
+                }
+
+                ;
+                errorMsgDiv.appendChild(explainBtn);
+                pythonConsole.appendChild(errorMsgDiv);
+            });
+    }
+
+    catch (e) {
+        const errorMsg=document.createElement('div');
+        errorMsg.className="error";
+        errorMsg.textContent="\n--- Critical Skulpt Error --- \n" + e.toString();
+        pythonConsole.appendChild(errorMsg);
+    }
+}
+}
+
+autoPreviewSwitch.onchange=()=> {
+    if (autoPreviewSwitch.checked && activeFile && (activeFile.language==='html' || activeFile.language==='css' || activeFile.language==='javascript')) {
+        runCode();
+    }
+}
+
+;
+
+togglePreviewPaneSwitch.onchange=()=> {
+    previewArea.style.display=togglePreviewPaneSwitch.checked ? 'flex' : 'none';
+    if (mainSplitInstance) mainSplitInstance.destroy();
+    initSplitLayout();
+}
+
+;
+
+
+// --- UI Enhancements & AI Features ---
+explainCodeBtn.onclick=async ()=> {
+    if ( !editorView || !activeFile) {
+        showCustomAlert("Please open a file or select some code first.");
+        return;
+    }
+
+    let codeToExplain=editorView.state.sliceDoc(editorView.state.selection.main.from,
+        editorView.state.selection.main.to);
+
+    if ( !codeToExplain.trim()) {
+        codeToExplain=editorView.state.doc.toString();
+    }
+
+    if ( !codeToExplain.trim()) {
+        showCustomAlert("There's no code to explain.");
+        return;
+    }
+
+    const languageName=activeFile.language==='javascript' ? 'JavaScript' : activeFile.language.charAt(0).toUpperCase() + activeFile.language.slice(1);
+
+    const promptText=`Explain the following $ {
+        languageName
+    }
+
+    code snippet. Be concise and clear, targeting a novice to intermediate programmer. If it's a UI element (HTML/CSS), describe what it would look like or do on a webpage. If it' s logic (JavaScript/Python), explain its purpose and how it works.\n\nCode:\n\`\`\`$ {
+        activeFile.language
+    }
+
+    \n$ {
+        codeToExplain
+    }
+
+    \n\`\`\``;
+
+    const explanation=await callGeminiApi(promptText);
+    displayAiInteractionResult("✨ AI Code Explanation", explanation, "explanation");
+}
+
+;
+
+generateCodeBtn.onclick=()=> {
+
+    // Set language in prompt modal based on active file, or default to HTML
+    if (activeFile) {
+        codeGenLanguageSelectEl.value=activeFile.language;
+    }
+
+    else {
+        codeGenLanguageSelectEl.value='html';
+    }
+
+    codeInputPromptEl.value=""; // Clear previous prompt
+    generateCodePromptModal.show();
+}
+
+;
+
+submitGenerateCodePromptBtn.onclick=async ()=> {
+    const userRequest=codeInputPromptEl.value.trim();
+    const targetLanguage=codeGenLanguageSelectEl.value;
+
+    if ( !userRequest) {
+        showCustomAlert("Please describe the code you want to generate.");
+        return;
+    }
+
+    generateCodePromptModal.hide();
+
+    const promptText=`Generate a concise $ {
+        targetLanguage
+    }
+
+    code snippet for the following request: "${userRequest}" . Provide the raw code block within a markdown code block, like this: \`\`\`$ {
+        targetLanguage
+    }
+
+    // Your generated code here
+    \`\`\` Do not include any surrounding text or explanation outside of the markdown code block.`;
+
+    const generatedCode=await callGeminiApi(promptText);
+    displayAiInteractionResult("✨ Generated Code", generatedCode || "// AI could not generate code for this request.", "codeGeneration");
+}
+
+;
+
+
+toggleDarkModeBtn.onclick=async ()=> {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("codecraft_dark_mode", document.body.classList.contains("dark-mode"));
+
+    if (activeFile) {
+        // Re-create editor to apply new theme without full page reload
+        await createEditor(activeFile.content, activeFile.language);
+    }
+}
+
+;
+
+if (localStorage.getItem("codecraft_dark_mode")==="true") {
+    document.body.classList.add("dark-mode");
+}
+
+formatCodeBtn.onclick=async ()=> {
+    if ( !editorView || !activeFile) return;
+
+    const currentCode=editorView.state.doc.toString();
+    let formattedCode=currentCode;
+    let parserName="";
+    let plugins=[];
+
+    try {
+        switch (activeFile.language) {
+            case "html": parserName="html"; plugins=[parserHtml]; break;
+            case "css": parserName="css"; plugins=[parserPostcss]; break;
+            case "javascript": parserName="babel"; plugins=[parserBabel]; break;
+            case "python": showCustomAlert("Python formatting is not yet supported in this client-side version."); return;
+            default: showCustomAlert("Formatting not available for this language."); return;
+        }
+
+        formattedCode=await prettier.format(currentCode, {
+            parser: parserName, plugins: plugins, semi: true, singleQuote: false,
+            tabWidth: 4, useTabs: false, printWidth: 100,
+        });
+
+    editorView.dispatch({
+        changes: {
+            from: 0, to: editorView.state.doc.length, insert: formattedCode
+        }
+    });
+activeFile.content=formattedCode;
+
+}
+
+catch (err) {
+    console.error("Formatting error:", err);
+    showCustomAlert("Could not format code. There might be a syntax error or an issue with the formatter.");
+}
+}
+
+;
+
+// --- Help Modal ---
+const helpModalEl=document.getElementById('helpModal');
+const helpModalBody=document.getElementById('helpModalBody');
+const helpModalLabel=document.getElementById('helpModalLabel');
+
+const helpTopics= {
+    general: {
+        title: "General Usage Guide",
+        content: `<h5>Welcome to CodeCraft Canvas !</h5> <p>Your personal coding sandbox.</p> <ul><li><strong>File Management:</strong> Sidebar for create, switch, save, load (uses browser local storage).</li><li><strong>Editor:</strong> Central area (CodeMirror) for HTML, CSS, JavaScript, Python. Features syntax highlighting & basic autocomplete.</li><li><strong>✨ AI Features:</strong><ul><li><strong>Generate Code:</strong> Click "Generate Code ✨" to describe what you want (e.g., "HTML login form", "Python sum function") and the AI will attempt to create it.</li><li><strong>Explain Code:</strong> Select code (or use whole file) and click "Explain Code ✨" in the header for an AI-powered explanation.</li><li><strong>Explain Python Error:</strong> If a Python script errors, an "Explain Error ✨" button appears next to the error in the console.</li></ul></li><li><strong>Preview/Console:</strong> Right pane for HTML/CSS/JS live preview (auto-run toggleable) or Python console output.</li><li><strong>Formatting:</strong> "Format Code" button for HTML, CSS, JS.</li><li><strong>Dark Mode:</strong> Toggle for eye comfort.</li><li><strong>Bootstrap:</strong> Ready for <a href="https://getbootstrap.com/docs/5.3/" target="_blank" >Bootstrap 5</a>.</li></ul> <p><strong>Tip:</strong> Start with default files to see how they interact.</p>`
+    }
+
+    ,
+    bootstrap: {
+        title: "Using Bootstrap 5",
+        content: `<h5>Bootstrap 5 Integration</h5><p>Easily use <a href="https://getbootstrap.com/docs/5.3/" target="_blank" >Bootstrap 5</a>.</p><ul><li><strong>CSS Classes:</strong> Add Bootstrap classes to HTML, e.g., <code>&lt; button class="btn btn-primary" &gt; Click&lt; /button&gt; </code>.</li><li><strong>Autocomplete:</strong> Basic Bootstrap class suggestions in HTML/CSS.</li><li><strong>Components:</strong> See <a href="https://getbootstrap.com/docs/5.3/components/alerts/" target="_blank" >official docs</a> for components.</li><li><strong>JavaScript:</strong> Default <code>index.html</code> includes Bootstrap JS for components like dropdowns.</li></ul><p><strong>Example: Bootstrap Alert</strong></p><pre><code>&lt; div class="alert alert-success" role="alert" &gt; \n This is a success alert !\n&lt; /div&gt; </code></pre>`
+    }
+}
+
+;
+
+document.querySelectorAll('[data-bs-toggle="modal"][data-bs-target="#helpModal"]').forEach(trigger=> {
+        trigger.addEventListener('click', (event)=> {
+                const topicKey=event.currentTarget.dataset.helpTopic || 'general';
+                const topic=helpTopics[topicKey];
+
+                if (topic) {
+                    helpModalLabel.textContent=topic.title;
+                    helpModalBody.innerHTML=topic.content;
+                }
+
+                else {
+                    helpModalLabel.textContent="Help Topic Not Found";
+                    helpModalBody.innerHTML="<p>Sorry, the requested help content is not available.</p>";
+                }
+            });
+    });
+
+// --- Split.js Layout ---
+let mainSplitInstance;
+
+function initSplitLayout() {
+    const visiblePanes=['#sidebarSplit', '#editorSplit'];
+
+    if (togglePreviewPaneSwitch.checked) {
+        visiblePanes.push('#previewSplit');
+    }
+
+    // Destroy existing instance if it exists to reinitialize with new pane configuration
+    if (mainSplitInstance) {
+        mainSplitInstance.destroy();
+    }
+
+    mainSplitInstance=Split(visiblePanes, {
+
+        sizes: togglePreviewPaneSwitch.checked ? [20, 50, 30] : [25, 75],
+        minSize: [200, 300, togglePreviewPaneSwitch.checked ? 250 : 0],
+        gutterSize: 8,
+        cursor: 'col-resize',
+        onDragEnd: function() {
+            if (editorView) editorView.requestMeasure();
+        }
+    });
+}
+
+// --- Initial Load ---
+async function initializeApp() {
+
+    // Load dark mode preference first
+    if (localStorage.getItem("codecraft_dark_mode")==="true") {
+        document.body.classList.add("dark-mode");
+    }
+
+    await loadDefaultFiles();
+    initSplitLayout();
+
+    // Ensure activeFile is set and editor is created only if there are files
+    if (files.length > 0 && activeFile) {
+        await createEditor(activeFile.content, activeFile.language);
+        updateRunButtonVisibility(activeFile.language);
+    }
+
+    else {
+        editorContainer.innerHTML='<div class="p-3 text-muted">Welcome! Create a new file or load existing project to start coding.</div>';
+    }
+}
+
+initializeApp();
+
+</script> </body> </html>

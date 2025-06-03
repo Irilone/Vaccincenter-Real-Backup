@@ -1,0 +1,19 @@
+{
+  "name": "vaccincenter-styles",
+  "version": "1.0.0",
+  "description": "Vaccincenter SCSS compilation",
+  "scripts": {
+    "build": "sass Styles/main.scss:../wwwroot/css/main.css --style=compressed",
+    "dev": "sass Styles/main.scss:../wwwroot/css/main.css --watch",
+    "lint": "stylelint \"Styles/**/*.scss\"",
+    "fix": "stylelint \"Styles/**/*.scss\" --fix"
+  },
+  "dependencies": {
+    "sass": "^1.64.1"
+  },
+  "devDependencies": {
+    "stylelint": "^15.10.1",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-scss": "^5.0.1"
+  }
+}

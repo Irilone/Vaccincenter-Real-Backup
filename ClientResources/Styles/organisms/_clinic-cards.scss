@@ -1,0 +1,56 @@
+// _clinic-cards.scss
+// Clinic cards collection component following BEM methodology
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.clinic-cards {
+  @include flex-column;
+
+  gap: var(--spacing-5);
+  margin-bottom: var(--spacing-8);
+  
+  @include respond-to('md') {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-6);
+  }
+  
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  // Element: Clinic cards header
+  &__header {
+    margin-bottom: var(--spacing-5);
+    text-align: center;
+    
+    h2 {
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-3);
+    }
+    
+    p {
+      color: var(--color-gray-700);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  // Element: Empty state message
+  &__empty {
+    text-align: center;
+    padding: var(--spacing-8) 0;
+    color: var(--color-gray-600);
+    
+    p {
+      margin-bottom: var(--spacing-4);
+    }
+  }
+}
+
+// For backward compatibility - extend legacy class with new BEM naming
+.main-flex .clinic-cards {
+  @extend .clinic-cards;
+}

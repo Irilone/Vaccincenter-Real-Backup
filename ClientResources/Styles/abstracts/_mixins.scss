@@ -1,0 +1,116 @@
+// _mixins.scss
+// Reusable patterns and utilities following BEM-inspired methodology
+
+@use 'sass:math';
+@use 'variables' as *; // Import variables without namespace
+
+// Responsive breakpoints (mobile-first)
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (width >= 576px) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (width >= 768px) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (width >= 992px) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (width >= 1280px) { @content; }
+  } @else if $breakpoint == "xxl" {
+    @media (width >= 1536px) { @content; }
+  }
+}
+
+// Typography mixins
+@mixin typography($size, $weight: normal, $line-height: var(--line-height-base)) {
+  font-size: var(--font-size-#{$size});
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+// Flex mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+// Spacing mixins
+@mixin padding($space) {
+  padding: var(--spacing-#{$space});
+}
+
+@mixin margin($space) {
+  margin: var(--spacing-#{$space});
+}
+
+// Transition mixin
+@mixin transition($properties: all) {
+  transition: $properties var(--transition-speed) var(--transition-easing);
+}
+
+// Container mixin
+@mixin container {
+  width: 100%;
+  padding-right: var(--spacing-4);
+  padding-left: var(--spacing-4);
+  margin-right: auto;
+  margin-left: auto;
+  
+  @include respond-to("sm") {
+    max-width: 540px;
+  }
+  
+  @include respond-to("md") {
+    max-width: 720px;
+  }
+  
+  @include respond-to("lg") {
+    max-width: 960px;
+  }
+  
+  @include respond-to("xl") {
+    max-width: 1280px;
+  }
+  
+  @include respond-to("xxl") {
+    max-width: 1536px;
+  }
+}
+
+// Card mixin
+@mixin card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-white);
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-4px);
+  }
+}
+
+// Supports mixin for checking feature support
+@mixin supports($feature) {
+  @supports #{$feature} {
+    @content;
+  }
+}
+
+// Focus styles with accessibility considerations
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+    @content;
+  }
+}

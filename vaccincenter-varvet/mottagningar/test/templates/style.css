@@ -1,0 +1,323 @@
+/*
+ * Vaccincenter Varvet Template Styles
+ * Version 2.2 - White header, new footer banner, !important colors
+ */
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+    /* Brand Colors */
+    --color-primary: #0058A0 !important;
+    --color-primary-rgb: 0, 88, 160;
+    --color-primary-light: #E0F0FA !important;
+    --color-secondary-accent: #00ADD0 !important;
+    --color-highlight: #d9534f !important;
+    
+    --color-white: #FFFFFF !important;
+    --color-black: #000000 !important;
+
+    /* Grayscale Palette */
+    --color-gray-100: #f8f9fa !important;
+    --color-gray-200: #e9ecef !important;
+    --color-gray-300: #dee2e6 !important; /* Borders */
+    --color-gray-400: #ced4da !important;
+    --color-gray-500: #adb5bd !important;
+    --color-gray-600: #6c757d !important; /* Secondary text */
+    --color-gray-700: #495057 !important; /* Primary text on light backgrounds */
+    --color-gray-800: #343a40 !important;
+    --color-gray-900: #212529 !important; /* Headings on light backgrounds */
+
+    /* Specific Colors from User Request */
+    --color-footer-bg: #eff9ff !important;
+    --color-footer-sub-banner-bg: #1f7ea4 !important;
+
+    /* Text Colors */
+    --text-color-default: var(--color-gray-700) !important;
+    --text-color-headings: var(--color-gray-900) !important;
+    --text-color-on-primary: var(--color-white) !important; /* For text on primary blue bg */
+    --text-color-on-sub-banner: var(--color-white) !important; /* For text on footer sub-banner */
+    --text-color-link: var(--color-primary) !important;
+    --text-color-link-hover: #004175 !important; /* Darker primary blue for hover */
+    --text-color-header-link: var(--color-primary) !important; /* Links in white header */
+
+
+    /* Typography */
+    --font-family-base: 'Filson Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-size-base: 1rem; 
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+    --line-height-base: 1.6;
+    --line-height-headings: 1.3;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+
+    /* Borders & Shadows */
+    --border-radius-base: 0.25rem;
+    --border-radius-lg: 0.5rem;
+    --border-color: var(--color-gray-300) !important;
+    --box-shadow-sm: 0 .125rem .25rem rgba(var(--color-primary-rgb), .075);
+    --box-shadow-md: 0 .5rem 1rem rgba(var(--color-primary-rgb), .15);
+
+    /* Transitions */
+    --transition-base: all 0.2s ease-in-out;
+}
+
+/* @media print styles for map */
+@media print {
+    .map-embed-container {
+        box-shadow: none !important;
+        border: 1px solid #bbb !important;
+        page-break-inside: avoid;
+        background-color: var(--color-white) !important; /* Use variable for white */
+    }
+    /* Hide loading indicators when printing */
+    .map-embed-container::before, .map-embed-container::after {
+        display: none !important;
+    }
+}
+
+/* ---------- Base Styles ---------- */
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--text-color-default) !important;
+    background-color: var(--color-white) !important;
+    margin: 0;
+    padding-top: 160px; /* For 160px fixed header */
+    /* padding-bottom removed as footer sub-banner is part of main flow */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--text-color-link) !important;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+a:hover {
+    color: var(--text-color-link-hover) !important;
+    text-decoration: underline !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-base);
+    color: var(--text-color-headings) !important;
+    line-height: var(--line-height-headings);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-color-default) !important; /* Ensure p text color also uses !important */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* ---------- Header Styles ---------- */
+.header.sticky-top {
+    z-index: 1030;
+    width: 100%; /* Ensure it spans full width */
+}
+
+.header .navbar { /* General navbar styling for header */
+    min-height: 160px;
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+    background-color: var(--color-white) !important; /* White background for header */
+    border-bottom: 1px solid var(--border-color); /* Optional: subtle border */
+}
+
+/* Styles for navbar-light (used with white header bg) */
+.navbar-light .navbar-brand {
+    color: var(--color-primary) !important;
+}
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: var(--text-color-link-hover) !important;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: var(--text-color-header-link) !important;
+    font-weight: 500;
+    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-md);
+}
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: var(--text-color-link-hover) !important;
+}
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--text-color-link-hover) !important; /* Or a distinct active color */
+}
+.navbar-light .navbar-toggler {
+    color: rgba(0,0,0,.55) !important; /* Default BS toggler color */
+    border-color: rgba(0,0,0,.1) !important; /* Default BS toggler border */
+}
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+
+.navbar-brand img {
+    max-height: 50px; /* Adjust if needed for 160px header */
+}
+
+/* Vertically center content in the 160px header */
+.header .navbar > .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Vertically center */
+    justify-content: space-between;
+    min-height: 160px; /* Ensure container also respects min-height */
+}
+
+
+/* ---------- Main Content Styles ---------- */
+main.container {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+}
+
+/* ---------- Footer Styles ---------- */
+.footer {
+    background-color: var(--color-footer-bg) !important; /* #eff9ff */
+    color: var(--text-color-default) !important;
+    padding-top: var(--spacing-xl); /* Padding for content above sub-banner */
+    /* min-height will be set by media query */
+}
+
+.footer h5 {
+    color: var(--text-color-headings) !important;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer .list-unstyled a {
+    color: var(--text-color-link) !important;
+}
+.footer .list-unstyled a:hover {
+    color: var(--text-color-link-hover) !important;
+}
+
+.footer .text-muted {
+    color: var(--color-gray-600) !important;
+}
+
+.footer img { /* Praktikertjänst logo in footer */
+    max-height: 30px;
+}
+
+/* New Footer Sub-Banner */
+.footer-sub-banner {
+    background-color: var(--color-footer-sub-banner-bg) !important; /* #1f7ea4 */
+    min-height: 100px;
+    width: 100%;
+    padding: var(--spacing-sm) 0; /* Reduced padding a bit */
+    display: flex; /* Added for centering content */
+    align-items: center; /* Added for centering content */
+    justify-content: center; /* Added for centering content */
+}
+
+.footer-sub-banner .container { /* Ensure container inside also helps with centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.footer-sub-banner a {
+    color: var(--text-color-on-sub-banner) !important;
+    text-decoration: none !important;
+    margin: var(--spacing-xs) var(--spacing-sm); /* Spacing around links */
+    font-weight: 500;
+}
+
+.footer-sub-banner a:hover {
+    text-decoration: underline !important;
+    color: var(--text-color-on-sub-banner) !important; /* Keep color same on hover */
+}
+
+.footer-sub-banner span.mx-2 { /* Separator */
+    color: var(--text-color-on-sub-banner) !important;
+}
+
+
+/* ---------- Utility Classes (Optional Additions) ---------- */
+.bg-primary {
+    background-color: var(--color-primary) !important;
+}
+.bg-white {
+    background-color: var(--color-white) !important;
+}
+
+.text-on-primary {
+    color: var(--text-color-on-primary) !important;
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (min-width: 1185px) {
+    .footer {
+        min-height: 630px; /* As per user request for specific width */
+        display: flex; /* To help manage height with sub-banner */
+        flex-direction: column; /* Stack main content and sub-banner */
+        justify-content: space-between; /* Push sub-banner to bottom if content is short */
+    }
+}
+
+
+@media (max-width: 991.98px) { /* Bootstrap lg breakpoint */
+    .navbar-nav {
+        padding-top: var(--spacing-sm);
+    }
+    .navbar-nav .nav-item {
+        margin-bottom: var(--spacing-xs);
+    }
+    body {
+        padding-top: 160px; /* Keep consistent with fixed header height */
+    }
+     .header .navbar > .container {
+        min-height: auto; /* Allow header to shrink on smaller screens if needed */
+    }
+}
+
+@media (max-width: 767.98px) { /* Bootstrap md breakpoint */
+    .footer .col-md-4 {
+        text-align: center;
+    }
+    .footer .col-md-4:not(:last-child) {
+        margin-bottom: var(--spacing-lg);
+    }
+    .footer-sub-banner .container {
+        flex-direction: column; /* Stack links in sub-banner on small screens */
+    }
+    .footer-sub-banner span.mx-2 {
+        display: none !important; /* Hide pipe separator when stacked */
+    }
+    .footer-sub-banner a {
+        margin: var(--spacing-xs) 0; /* Adjust margin for stacked links */
+    }
+}
+
+/* Ensure !important for all font colors if missed */
+body, p, span, div, li, label, input, select, textarea, button {
+    font-family: var(--font-family-base) !important; /* Ensure font family is also important if needed */
+    /* color property is handled by more specific rules or inherited with !important */
+}

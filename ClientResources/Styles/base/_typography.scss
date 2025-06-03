@@ -1,0 +1,147 @@
+// _typography.scss
+// Typography styles following BEM methodology and Episerver guidelines
+
+@use '../abstracts/mixins' as *;
+
+// Base typography
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-gray-900);
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: var(--spacing-4);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+  color: var(--color-primary);
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+  
+  @include respond-to('md') {
+    font-size: calc(var(--font-size-3xl) * 1.25);
+  }
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  
+  @include respond-to('md') {
+    font-size: calc(var(--font-size-2xl) * 1.15);
+  }
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5 {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+h6 {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+// Paragraphs
+p {
+  margin-bottom: var(--spacing-4);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Lists
+ul, ol {
+  margin-bottom: var(--spacing-4);
+  padding-left: var(--spacing-5);
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+// Reset list styles for navigation and other components
+.reset-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+// Text utilities
+.text {
+  &--center {
+    text-align: center;
+  }
+  
+  &--left {
+    text-align: left;
+  }
+  
+  &--right {
+    text-align: right;
+  }
+  
+  &--primary {
+    color: var(--color-primary);
+  }
+  
+  &--secondary {
+    color: var(--color-secondary);
+  }
+  
+  &--muted {
+    color: var(--color-gray-600);
+  }
+  
+  &--small {
+    font-size: var(--font-size-sm);
+  }
+  
+  &--large {
+    font-size: var(--font-size-lg);
+  }
+}
+
+// Link styles
+a {
+  &.link {
+    position: relative;
+    color: var(--color-secondary);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: currentcolor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--transition-speed) var(--transition-easing);
+    }
+    
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+// _functions.scss
+// SCSS functions for theming and calculations
+
+@use 'sass:math';
+@use 'variables' as *;
+
+// Convert pixel values to rem
+@function rem($pixels, $context: 16) {
+  @return math.div($pixels, $context) * 1rem;
+}
+
+// Convert pixel values to em
+@function em($pixels, $context: 16) {
+  @return math.div($pixels, $context) * 1em;
+}
+
+// Color functions
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Z-index management
+@function z($layer) {
+  $z-layers: (
+    "dropdown": var(--z-index-dropdown),
+    "sticky": var(--z-index-sticky),
+    "fixed": var(--z-index-fixed),
+    "modal-backdrop": var(--z-index-modal-backdrop),
+    "modal": var(--z-index-modal),
+    "popover": var(--z-index-popover),
+    "tooltip": var(--z-index-tooltip)
+  );
+  
+  @return map-get($z-layers, $layer);
+}
+
+// Get CSS variable value safely
+@function var-value($variable, $fallback: null) {
+  @if $fallback {
+    @return var($variable, $fallback);
+  } @else {
+    @return var($variable);
+  }
+}
+
+// Map deep get for nested maps
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}

@@ -1,0 +1,64 @@
+// _container.scss
+// Container layout component following BEM methodology
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.container {
+  width: 100%;
+  padding-right: var(--spacing-4);
+  padding-left: var(--spacing-4);
+  margin-right: auto;
+  margin-left: auto;
+
+  // Note: -webkit-overflow-scrolling is deprecated and no longer needed in modern browsers
+  box-sizing: border-box;
+  
+  // Responsive breakpoints (mobile-first)
+  @include respond-to('sm') {
+    max-width: 540px;
+  }
+  
+  @include respond-to('md') {
+    max-width: 720px;
+  }
+  
+  @include respond-to('lg') {
+    max-width: 960px;
+  }
+  
+  @include respond-to('xl') {
+    max-width: 1280px;
+  }
+  
+  @include respond-to('xxl') {
+    max-width: 1536px;
+  }
+  
+  // Modifier: Fluid container (no max-width)
+  &--fluid {
+    max-width: none;
+  }
+  
+  // Modifier: Narrow container
+  &--narrow {
+    @include respond-to('md') {
+      max-width: 640px;
+    }
+    
+    @include respond-to('lg') {
+      max-width: 768px;
+    }
+  }
+  
+  // Modifier: Extra padding
+  &--padded {
+    padding-top: var(--spacing-6);
+    padding-bottom: var(--spacing-6);
+    
+    @include respond-to('md') {
+      padding-top: var(--spacing-8);
+      padding-bottom: var(--spacing-8);
+    }
+  }
+}

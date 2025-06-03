@@ -1,0 +1,67 @@
+// _icons.scss
+// Icon components following BEM methodology
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  // Font Awesome icons styling (from original code)
+  &.fa, &.fas, &.far, &.fal, &.fab {
+    font-feature-settings: normal;
+  }
+  
+  // Modifier: Size variations
+  &--sm {
+    font-size: var(--font-size-sm);
+  }
+  
+  &--lg {
+    font-size: var(--font-size-lg);
+  }
+  
+  &--xl {
+    font-size: var(--font-size-xl);
+  }
+  
+  // Modifier: Color variations
+  &--primary {
+    color: var(--color-primary);
+  }
+  
+  &--secondary {
+    color: var(--color-secondary);
+  }
+  
+  &--white {
+    color: var(--color-white);
+  }
+  
+  // Element: Icon container
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-gray-100);
+    
+    // Modifier: Primary background
+    &--primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+    
+    // Modifier: Secondary background
+    &--secondary {
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+    }
+  }
+}
+
+// Original navigation icon styles
+.navigation__item-chevron--collapsed {
+  color: var(--color-primary);
+}
