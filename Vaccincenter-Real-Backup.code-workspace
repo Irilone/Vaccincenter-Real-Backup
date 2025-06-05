@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "Vaccincenter-Real-Backup: imgbot",
+			"path": "../Vaccincenter-Real-Backup.worktrees/imgbot"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.rsh": "javascript"
+		},
+		"liveServer.settings.port": 5501
+	}
+}
